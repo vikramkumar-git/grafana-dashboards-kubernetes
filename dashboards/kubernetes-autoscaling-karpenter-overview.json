@@ -1,30 +1,13 @@
 {
-  "apiVersion": "dashboard.grafana.app/v1beta1",
+  "apiVersion": "dashboard.grafana.app/v0alpha1",
   "kind": "Dashboard",
   "metadata": {
     "name": "kubernetes-autoscaling-mixin-kover-jkwq"
   },
   "spec": {
-    "annotations": {
-      "list": [
-        {
-          "builtIn": 1,
-          "datasource": {
-            "type": "grafana",
-            "uid": "-- Grafana --"
-          },
-          "enable": true,
-          "hide": true,
-          "iconColor": "rgba(0, 211, 255, 1)",
-          "name": "Annotations \u0026 Alerts",
-          "type": "dashboard"
-        }
-      ]
-    },
     "description": "A dashboard that monitors Karpenter and focuses on giving a overview for Karpenter. It is created using the [kubernetes-autoscaling-mixin](https://github.com/adinhodovic/kubernetes-autoscaling-mixin).",
     "editable": true,
-    "fiscalYearStartMonth": 0,
-    "graphTooltip": 0,
+    "gnetId": 22171,
     "links": [
       {
         "tags": [
@@ -48,7 +31,6 @@
           "y": 0
         },
         "id": 1,
-        "panels": [],
         "title": "Cluster Summary",
         "type": "row"
       },
@@ -59,58 +41,11 @@
         },
         "fieldConfig": {
           "defaults": {
-            "color": {
-              "mode": "palette-classic"
-            },
             "custom": {
-              "axisBorderShow": false,
-              "axisCenteredZero": false,
-              "axisColorMode": "text",
-              "axisLabel": "",
-              "axisPlacement": "auto",
-              "barAlignment": 0,
-              "barWidthFactor": 0.6,
-              "drawStyle": "line",
-              "fillOpacity": 0,
-              "gradientMode": "none",
-              "hideFrom": {
-                "legend": false,
-                "tooltip": false,
-                "viz": false
-              },
-              "insertNulls": false,
-              "lineInterpolation": "linear",
-              "lineWidth": 1,
-              "pointSize": 5,
-              "scaleDistribution": {
-                "type": "linear"
-              },
-              "showPoints": "auto",
-              "spanNulls": false,
-              "stacking": {
-                "group": "A",
-                "mode": "none"
-              },
-              "thresholdsStyle": {
-                "mode": "off"
-              }
-            },
-            "mappings": [],
-            "thresholds": {
-              "mode": "absolute",
-              "steps": [
-                {
-                  "color": "green"
-                },
-                {
-                  "color": "red",
-                  "value": 80
-                }
-              ]
+              "spanNulls": false
             },
             "unit": "short"
-          },
-          "overrides": []
+          }
         },
         "gridPos": {
           "h": 5,
@@ -133,12 +68,11 @@
             "sortDesc": true
           },
           "tooltip": {
-            "hideZeros": false,
             "mode": "multi",
             "sort": "desc"
           }
         },
-        "pluginVersion": "12.0.2",
+        "pluginVersion": "v11.4.0",
         "targets": [
           {
             "datasource": {
@@ -146,8 +80,7 @@
               "uid": "$datasource"
             },
             "expr": "sum(\n  karpenter_nodepools_usage{\n    job=~\"$job\",\n    nodepool=~\"$nodepool\",\n    resource_type=\"cpu\"\n  }\n)\n",
-            "legendFormat": "Allocatable",
-            "refId": "A"
+            "legendFormat": "Allocatable"
           },
           {
             "datasource": {
@@ -155,8 +88,7 @@
               "uid": "$datasource"
             },
             "expr": "sum(\n  karpenter_nodes_total_pod_requests{\n    job=~\"$job\",\n    resource_type=\"cpu\",\n    region=~\"$region\",\n    zone=~\"$zone\",\n    arch=~\"$arch\",\n    os=~\"$os\",\n    instance_type=~\"$instance_type\",\n    capacity_type=~\"$capacity_type\",\n    nodepool=~\"$nodepool\"\n  }\n) +\nsum(\n  karpenter_nodes_total_daemon_requests{\n    job=~\"$job\",\n    resource_type=\"cpu\",\n    region=~\"$region\",\n    zone=~\"$zone\",\n    arch=~\"$arch\",\n    os=~\"$os\",\n    instance_type=~\"$instance_type\",\n    capacity_type=~\"$capacity_type\",\n    nodepool=~\"$nodepool\"\n  }\n)\n",
-            "legendFormat": "Requested",
-            "refId": "B"
+            "legendFormat": "Requested"
           }
         ],
         "title": "Cluster CPU Utilization",
@@ -169,58 +101,11 @@
         },
         "fieldConfig": {
           "defaults": {
-            "color": {
-              "mode": "palette-classic"
-            },
             "custom": {
-              "axisBorderShow": false,
-              "axisCenteredZero": false,
-              "axisColorMode": "text",
-              "axisLabel": "",
-              "axisPlacement": "auto",
-              "barAlignment": 0,
-              "barWidthFactor": 0.6,
-              "drawStyle": "line",
-              "fillOpacity": 0,
-              "gradientMode": "none",
-              "hideFrom": {
-                "legend": false,
-                "tooltip": false,
-                "viz": false
-              },
-              "insertNulls": false,
-              "lineInterpolation": "linear",
-              "lineWidth": 1,
-              "pointSize": 5,
-              "scaleDistribution": {
-                "type": "linear"
-              },
-              "showPoints": "auto",
-              "spanNulls": false,
-              "stacking": {
-                "group": "A",
-                "mode": "none"
-              },
-              "thresholdsStyle": {
-                "mode": "off"
-              }
-            },
-            "mappings": [],
-            "thresholds": {
-              "mode": "absolute",
-              "steps": [
-                {
-                  "color": "green"
-                },
-                {
-                  "color": "red",
-                  "value": 80
-                }
-              ]
+              "spanNulls": false
             },
             "unit": "bytes"
-          },
-          "overrides": []
+          }
         },
         "gridPos": {
           "h": 5,
@@ -243,12 +128,11 @@
             "sortDesc": true
           },
           "tooltip": {
-            "hideZeros": false,
             "mode": "multi",
             "sort": "desc"
           }
         },
-        "pluginVersion": "12.0.2",
+        "pluginVersion": "v11.4.0",
         "targets": [
           {
             "datasource": {
@@ -256,8 +140,7 @@
               "uid": "$datasource"
             },
             "expr": "sum(\n  karpenter_nodepools_usage{\n    job=~\"$job\",\n    nodepool=~\"$nodepool\",\n    resource_type=\"memory\"\n  }\n)\n",
-            "legendFormat": "Allocatable",
-            "refId": "A"
+            "legendFormat": "Allocatable"
           },
           {
             "datasource": {
@@ -265,8 +148,7 @@
               "uid": "$datasource"
             },
             "expr": "sum(\n  karpenter_nodes_total_pod_requests{\n    job=~\"$job\",\n    resource_type=\"memory\",\n    region=~\"$region\",\n    zone=~\"$zone\",\n    arch=~\"$arch\",\n    os=~\"$os\",\n    instance_type=~\"$instance_type\",\n    capacity_type=~\"$capacity_type\",\n    nodepool=~\"$nodepool\"\n  }\n) +\nsum(\n  karpenter_nodes_total_daemon_requests{\n    job=~\"$job\",\n    resource_type=\"memory\",\n    region=~\"$region\",\n    zone=~\"$zone\",\n    arch=~\"$arch\",\n    os=~\"$os\",\n    instance_type=~\"$instance_type\",\n    capacity_type=~\"$capacity_type\",\n    nodepool=~\"$nodepool\"\n  }\n)\n",
-            "legendFormat": "Requested",
-            "refId": "B"
+            "legendFormat": "Requested"
           }
         ],
         "title": "Cluster Memory Utilization",
@@ -281,7 +163,6 @@
           "y": 6
         },
         "id": 4,
-        "panels": [],
         "title": "Node Pool Summary",
         "type": "row"
       },
@@ -292,12 +173,11 @@
         },
         "fieldConfig": {
           "defaults": {
-            "mappings": [],
             "thresholds": {
-              "mode": "absolute",
               "steps": [
                 {
-                  "color": "red"
+                  "color": "red",
+                  "value": 0
                 },
                 {
                   "color": "green",
@@ -306,8 +186,7 @@
               ]
             },
             "unit": "short"
-          },
-          "overrides": []
+          }
         },
         "gridPos": {
           "h": 3,
@@ -317,31 +196,20 @@
         },
         "id": 5,
         "options": {
-          "colorMode": "value",
-          "graphMode": "area",
-          "justifyMode": "auto",
-          "orientation": "auto",
-          "percentChangeColorMode": "standard",
           "reduceOptions": {
             "calcs": [
               "lastNotNull"
-            ],
-            "fields": "",
-            "values": false
-          },
-          "showPercentChange": false,
-          "textMode": "auto",
-          "wideLayout": true
+            ]
+          }
         },
-        "pluginVersion": "12.0.2",
+        "pluginVersion": "v11.4.0",
         "targets": [
           {
             "datasource": {
               "type": "prometheus",
               "uid": "$datasource"
             },
-            "expr": "count(\n  count(\n    karpenter_nodepools_allowed_disruptions{\n      job=~\"$job\",\n    }\n  ) by (nodepool)\n)\n",
-            "refId": "A"
+            "expr": "count(\n  count(\n    karpenter_nodepools_allowed_disruptions{\n      job=~\"$job\",\n    }\n  ) by (nodepool)\n)\n"
           }
         ],
         "title": "Node Pools",
@@ -354,12 +222,11 @@
         },
         "fieldConfig": {
           "defaults": {
-            "mappings": [],
             "thresholds": {
-              "mode": "absolute",
               "steps": [
                 {
-                  "color": "red"
+                  "color": "red",
+                  "value": 0
                 },
                 {
                   "color": "green",
@@ -368,8 +235,7 @@
               ]
             },
             "unit": "short"
-          },
-          "overrides": []
+          }
         },
         "gridPos": {
           "h": 3,
@@ -379,31 +245,20 @@
         },
         "id": 6,
         "options": {
-          "colorMode": "value",
-          "graphMode": "area",
-          "justifyMode": "auto",
-          "orientation": "auto",
-          "percentChangeColorMode": "standard",
           "reduceOptions": {
             "calcs": [
               "lastNotNull"
-            ],
-            "fields": "",
-            "values": false
-          },
-          "showPercentChange": false,
-          "textMode": "auto",
-          "wideLayout": true
+            ]
+          }
         },
-        "pluginVersion": "12.0.2",
+        "pluginVersion": "v11.4.0",
         "targets": [
           {
             "datasource": {
               "type": "prometheus",
               "uid": "$datasource"
             },
-            "expr": "count(\n  count(\n    karpenter_nodes_allocatable{\n      job=~\"$job\",\n      region=~\"$region\",\n      zone=~\"$zone\",\n      arch=~\"$arch\",\n      os=~\"$os\",\n      instance_type=~\"$instance_type\",\n      capacity_type=~\"$capacity_type\",\n      nodepool=~\"$nodepool\"\n    }\n  ) by (node_name)\n)\n",
-            "refId": "A"
+            "expr": "count(\n  count(\n    karpenter_nodes_allocatable{\n      job=~\"$job\",\n      region=~\"$region\",\n      zone=~\"$zone\",\n      arch=~\"$arch\",\n      os=~\"$os\",\n      instance_type=~\"$instance_type\",\n      capacity_type=~\"$capacity_type\",\n      nodepool=~\"$nodepool\"\n    }\n  ) by (node_name)\n)\n"
           }
         ],
         "title": "Nodes",
@@ -416,12 +271,11 @@
         },
         "fieldConfig": {
           "defaults": {
-            "mappings": [],
             "thresholds": {
-              "mode": "absolute",
               "steps": [
                 {
-                  "color": "red"
+                  "color": "red",
+                  "value": 0
                 },
                 {
                   "color": "green",
@@ -430,8 +284,7 @@
               ]
             },
             "unit": "short"
-          },
-          "overrides": []
+          }
         },
         "gridPos": {
           "h": 3,
@@ -441,31 +294,20 @@
         },
         "id": 7,
         "options": {
-          "colorMode": "value",
-          "graphMode": "area",
-          "justifyMode": "auto",
-          "orientation": "auto",
-          "percentChangeColorMode": "standard",
           "reduceOptions": {
             "calcs": [
               "lastNotNull"
-            ],
-            "fields": "",
-            "values": false
-          },
-          "showPercentChange": false,
-          "textMode": "auto",
-          "wideLayout": true
+            ]
+          }
         },
-        "pluginVersion": "12.0.2",
+        "pluginVersion": "v11.4.0",
         "targets": [
           {
             "datasource": {
               "type": "prometheus",
               "uid": "$datasource"
             },
-            "expr": "sum(\n  karpenter_nodepools_usage{\n    job=~\"$job\",\n    nodepool=~\"$nodepool\",\n    resource_type=\"cpu\"\n  }\n)\n",
-            "refId": "A"
+            "expr": "sum(\n  karpenter_nodepools_usage{\n    job=~\"$job\",\n    nodepool=~\"$nodepool\",\n    resource_type=\"cpu\"\n  }\n)\n"
           }
         ],
         "title": "Node Pool CPU Usage",
@@ -478,12 +320,11 @@
         },
         "fieldConfig": {
           "defaults": {
-            "mappings": [],
             "thresholds": {
-              "mode": "absolute",
               "steps": [
                 {
-                  "color": "red"
+                  "color": "red",
+                  "value": 0
                 },
                 {
                   "color": "green",
@@ -492,8 +333,7 @@
               ]
             },
             "unit": "bytes"
-          },
-          "overrides": []
+          }
         },
         "gridPos": {
           "h": 3,
@@ -503,31 +343,20 @@
         },
         "id": 8,
         "options": {
-          "colorMode": "value",
-          "graphMode": "area",
-          "justifyMode": "auto",
-          "orientation": "auto",
-          "percentChangeColorMode": "standard",
           "reduceOptions": {
             "calcs": [
               "lastNotNull"
-            ],
-            "fields": "",
-            "values": false
-          },
-          "showPercentChange": false,
-          "textMode": "auto",
-          "wideLayout": true
+            ]
+          }
         },
-        "pluginVersion": "12.0.2",
+        "pluginVersion": "v11.4.0",
         "targets": [
           {
             "datasource": {
               "type": "prometheus",
               "uid": "$datasource"
             },
-            "expr": "sum(\n  karpenter_nodepools_usage{\n    job=~\"$job\",\n    nodepool=~\"$nodepool\",\n    resource_type=\"memory\"\n  }\n)\n",
-            "refId": "A"
+            "expr": "sum(\n  karpenter_nodepools_usage{\n    job=~\"$job\",\n    nodepool=~\"$nodepool\",\n    resource_type=\"memory\"\n  }\n)\n"
           }
         ],
         "title": "Node Pool Memory Usage",
@@ -540,12 +369,11 @@
         },
         "fieldConfig": {
           "defaults": {
-            "mappings": [],
             "thresholds": {
-              "mode": "absolute",
               "steps": [
                 {
-                  "color": "red"
+                  "color": "red",
+                  "value": 0
                 },
                 {
                   "color": "green",
@@ -554,8 +382,7 @@
               ]
             },
             "unit": "short"
-          },
-          "overrides": []
+          }
         },
         "gridPos": {
           "h": 3,
@@ -565,31 +392,20 @@
         },
         "id": 9,
         "options": {
-          "colorMode": "value",
-          "graphMode": "area",
-          "justifyMode": "auto",
-          "orientation": "auto",
-          "percentChangeColorMode": "standard",
           "reduceOptions": {
             "calcs": [
               "lastNotNull"
-            ],
-            "fields": "",
-            "values": false
-          },
-          "showPercentChange": false,
-          "textMode": "auto",
-          "wideLayout": true
+            ]
+          }
         },
-        "pluginVersion": "12.0.2",
+        "pluginVersion": "v11.4.0",
         "targets": [
           {
             "datasource": {
               "type": "prometheus",
               "uid": "$datasource"
             },
-            "expr": "sum(\n  karpenter_nodepools_limit{\n    job=~\"$job\",\n    nodepool=~\"$nodepool\",\n    resource_type=\"cpu\"\n  }\n)\n",
-            "refId": "A"
+            "expr": "sum(\n  karpenter_nodepools_limit{\n    job=~\"$job\",\n    nodepool=~\"$nodepool\",\n    resource_type=\"cpu\"\n  }\n)\n"
           }
         ],
         "title": "Node Pool CPU Limits",
@@ -602,12 +418,11 @@
         },
         "fieldConfig": {
           "defaults": {
-            "mappings": [],
             "thresholds": {
-              "mode": "absolute",
               "steps": [
                 {
-                  "color": "red"
+                  "color": "red",
+                  "value": 0
                 },
                 {
                   "color": "green",
@@ -616,8 +431,7 @@
               ]
             },
             "unit": "bytes"
-          },
-          "overrides": []
+          }
         },
         "gridPos": {
           "h": 3,
@@ -627,31 +441,20 @@
         },
         "id": 10,
         "options": {
-          "colorMode": "value",
-          "graphMode": "area",
-          "justifyMode": "auto",
-          "orientation": "auto",
-          "percentChangeColorMode": "standard",
           "reduceOptions": {
             "calcs": [
               "lastNotNull"
-            ],
-            "fields": "",
-            "values": false
-          },
-          "showPercentChange": false,
-          "textMode": "auto",
-          "wideLayout": true
+            ]
+          }
         },
-        "pluginVersion": "12.0.2",
+        "pluginVersion": "v11.4.0",
         "targets": [
           {
             "datasource": {
               "type": "prometheus",
               "uid": "$datasource"
             },
-            "expr": "sum(\n  karpenter_nodepools_limit{\n    job=~\"$job\",\n    nodepool=~\"$nodepool\",\n    resource_type=\"memory\"\n  }\n)\n",
-            "refId": "A"
+            "expr": "sum(\n  karpenter_nodepools_limit{\n    job=~\"$job\",\n    nodepool=~\"$nodepool\",\n    resource_type=\"memory\"\n  }\n)\n"
           }
         ],
         "title": "Node Pool Memory Limits",
@@ -664,58 +467,11 @@
         },
         "fieldConfig": {
           "defaults": {
-            "color": {
-              "mode": "palette-classic"
-            },
             "custom": {
-              "axisBorderShow": false,
-              "axisCenteredZero": false,
-              "axisColorMode": "text",
-              "axisLabel": "",
-              "axisPlacement": "auto",
-              "barAlignment": 0,
-              "barWidthFactor": 0.6,
-              "drawStyle": "line",
-              "fillOpacity": 0,
-              "gradientMode": "none",
-              "hideFrom": {
-                "legend": false,
-                "tooltip": false,
-                "viz": false
-              },
-              "insertNulls": false,
-              "lineInterpolation": "linear",
-              "lineWidth": 1,
-              "pointSize": 5,
-              "scaleDistribution": {
-                "type": "linear"
-              },
-              "showPoints": "auto",
-              "spanNulls": false,
-              "stacking": {
-                "group": "A",
-                "mode": "none"
-              },
-              "thresholdsStyle": {
-                "mode": "off"
-              }
-            },
-            "mappings": [],
-            "thresholds": {
-              "mode": "absolute",
-              "steps": [
-                {
-                  "color": "green"
-                },
-                {
-                  "color": "red",
-                  "value": 80
-                }
-              ]
+              "spanNulls": false
             },
             "unit": "percent"
-          },
-          "overrides": []
+          }
         },
         "gridPos": {
           "h": 8,
@@ -738,12 +494,11 @@
             "sortDesc": true
           },
           "tooltip": {
-            "hideZeros": false,
             "mode": "multi",
             "sort": "desc"
           }
         },
-        "pluginVersion": "12.0.2",
+        "pluginVersion": "v11.4.0",
         "targets": [
           {
             "datasource": {
@@ -751,8 +506,7 @@
               "uid": "$datasource"
             },
             "expr": "sum(\n  karpenter_nodepools_usage{\n    job=~\"$job\",\n    nodepool=~\"$nodepool\",\n  }\n) by (nodepool, resource_type)\n/\nsum(\n  karpenter_nodepools_limit{\n    job=~\"$job\",\n    nodepool=~\"$nodepool\",\n  }\n) by (nodepool, resource_type) * 100\n",
-            "legendFormat": "{{ nodepool }} / {{ resource_type }}",
-            "refId": "A"
+            "legendFormat": "{{ nodepool }} / {{ resource_type }}"
           }
         ],
         "title": "Node Pool Usage % of Limit",
@@ -762,22 +516,6 @@
         "datasource": {
           "type": "datasource",
           "uid": "-- Mixed --"
-        },
-        "fieldConfig": {
-          "defaults": {
-            "color": {
-              "mode": "palette-classic"
-            },
-            "custom": {
-              "hideFrom": {
-                "legend": false,
-                "tooltip": false,
-                "viz": false
-              }
-            },
-            "mappings": []
-          },
-          "overrides": []
         },
         "gridPos": {
           "h": 5,
@@ -791,28 +529,15 @@
             "asTable": true,
             "displayMode": "table",
             "placement": "right",
-            "showLegend": true,
             "sortDesc": true,
             "values": [
               "value",
               "percent"
             ]
           },
-          "pieType": "pie",
-          "reduceOptions": {
-            "calcs": [
-              "lastNotNull"
-            ],
-            "fields": "",
-            "values": false
-          },
-          "tooltip": {
-            "hideZeros": false,
-            "mode": "single",
-            "sort": "none"
-          }
+          "pieType": "pie"
         },
-        "pluginVersion": "12.0.2",
+        "pluginVersion": "v11.4.0",
         "targets": [
           {
             "datasource": {
@@ -821,8 +546,7 @@
             },
             "expr": "count by (nodepool) (\n  count by (node_name, nodepool) (\n    karpenter_nodes_allocatable{\n      job=~\"$job\",\n      region=~\"$region\",\n      zone=~\"$zone\",\n      arch=~\"$arch\",\n      os=~\"$os\",\n      instance_type=~\"$instance_type\",\n      capacity_type=~\"$capacity_type\",\n      nodepool=~\"$nodepool\"\n    }\n  )\n)\n",
             "instant": true,
-            "legendFormat": "{{ nodepool }}",
-            "refId": "A"
+            "legendFormat": "{{ nodepool }}"
           }
         ],
         "title": "Nodes by Node Pool",
@@ -832,22 +556,6 @@
         "datasource": {
           "type": "datasource",
           "uid": "-- Mixed --"
-        },
-        "fieldConfig": {
-          "defaults": {
-            "color": {
-              "mode": "palette-classic"
-            },
-            "custom": {
-              "hideFrom": {
-                "legend": false,
-                "tooltip": false,
-                "viz": false
-              }
-            },
-            "mappings": []
-          },
-          "overrides": []
         },
         "gridPos": {
           "h": 5,
@@ -861,28 +569,15 @@
             "asTable": true,
             "displayMode": "table",
             "placement": "right",
-            "showLegend": true,
             "sortDesc": true,
             "values": [
               "value",
               "percent"
             ]
           },
-          "pieType": "pie",
-          "reduceOptions": {
-            "calcs": [
-              "lastNotNull"
-            ],
-            "fields": "",
-            "values": false
-          },
-          "tooltip": {
-            "hideZeros": false,
-            "mode": "single",
-            "sort": "none"
-          }
+          "pieType": "pie"
         },
-        "pluginVersion": "12.0.2",
+        "pluginVersion": "v11.4.0",
         "targets": [
           {
             "datasource": {
@@ -891,8 +586,7 @@
             },
             "expr": "count by (instance_type) (\n  count by (node_name, instance_type) (\n    karpenter_nodes_allocatable{\n      job=~\"$job\",\n      region=~\"$region\",\n      zone=~\"$zone\",\n      arch=~\"$arch\",\n      os=~\"$os\",\n      instance_type=~\"$instance_type\",\n      capacity_type=~\"$capacity_type\",\n      nodepool=~\"$nodepool\"\n    }\n  )\n)\n",
             "instant": true,
-            "legendFormat": "{{ instance_type }}",
-            "refId": "A"
+            "legendFormat": "{{ instance_type }}"
           }
         ],
         "title": "Nodes by Instance Type",
@@ -902,22 +596,6 @@
         "datasource": {
           "type": "datasource",
           "uid": "-- Mixed --"
-        },
-        "fieldConfig": {
-          "defaults": {
-            "color": {
-              "mode": "palette-classic"
-            },
-            "custom": {
-              "hideFrom": {
-                "legend": false,
-                "tooltip": false,
-                "viz": false
-              }
-            },
-            "mappings": []
-          },
-          "overrides": []
         },
         "gridPos": {
           "h": 5,
@@ -931,28 +609,15 @@
             "asTable": true,
             "displayMode": "table",
             "placement": "right",
-            "showLegend": true,
             "sortDesc": true,
             "values": [
               "value",
               "percent"
             ]
           },
-          "pieType": "pie",
-          "reduceOptions": {
-            "calcs": [
-              "lastNotNull"
-            ],
-            "fields": "",
-            "values": false
-          },
-          "tooltip": {
-            "hideZeros": false,
-            "mode": "single",
-            "sort": "none"
-          }
+          "pieType": "pie"
         },
-        "pluginVersion": "12.0.2",
+        "pluginVersion": "v11.4.0",
         "targets": [
           {
             "datasource": {
@@ -961,8 +626,7 @@
             },
             "expr": "count by (capacity_type) (\n  count by (node_name, capacity_type) (\n    karpenter_nodes_allocatable{\n      job=~\"$job\",\n      region=~\"$region\",\n      zone=~\"$zone\",\n      arch=~\"$arch\",\n      os=~\"$os\",\n      instance_type=~\"$instance_type\",\n      capacity_type=~\"$capacity_type\",\n      nodepool=~\"$nodepool\"\n    }\n  )\n)\n",
             "instant": true,
-            "legendFormat": "{{ capacity_type }}",
-            "refId": "A"
+            "legendFormat": "{{ capacity_type }}"
           }
         ],
         "title": "Nodes by Capacity Type",
@@ -972,22 +636,6 @@
         "datasource": {
           "type": "datasource",
           "uid": "-- Mixed --"
-        },
-        "fieldConfig": {
-          "defaults": {
-            "color": {
-              "mode": "palette-classic"
-            },
-            "custom": {
-              "hideFrom": {
-                "legend": false,
-                "tooltip": false,
-                "viz": false
-              }
-            },
-            "mappings": []
-          },
-          "overrides": []
         },
         "gridPos": {
           "h": 5,
@@ -1001,28 +649,15 @@
             "asTable": true,
             "displayMode": "table",
             "placement": "right",
-            "showLegend": true,
             "sortDesc": true,
             "values": [
               "value",
               "percent"
             ]
           },
-          "pieType": "pie",
-          "reduceOptions": {
-            "calcs": [
-              "lastNotNull"
-            ],
-            "fields": "",
-            "values": false
-          },
-          "tooltip": {
-            "hideZeros": false,
-            "mode": "single",
-            "sort": "none"
-          }
+          "pieType": "pie"
         },
-        "pluginVersion": "12.0.2",
+        "pluginVersion": "v11.4.0",
         "targets": [
           {
             "datasource": {
@@ -1031,8 +666,7 @@
             },
             "expr": "count by (region) (\n  count by (node_name, region) (\n    karpenter_nodes_allocatable{\n      job=~\"$job\",\n      region=~\"$region\",\n      zone=~\"$zone\",\n      arch=~\"$arch\",\n      os=~\"$os\",\n      instance_type=~\"$instance_type\",\n      capacity_type=~\"$capacity_type\",\n      nodepool=~\"$nodepool\"\n    }\n  )\n)\n",
             "instant": true,
-            "legendFormat": "{{ region }}",
-            "refId": "A"
+            "legendFormat": "{{ region }}"
           }
         ],
         "title": "Nodes by Region",
@@ -1042,22 +676,6 @@
         "datasource": {
           "type": "datasource",
           "uid": "-- Mixed --"
-        },
-        "fieldConfig": {
-          "defaults": {
-            "color": {
-              "mode": "palette-classic"
-            },
-            "custom": {
-              "hideFrom": {
-                "legend": false,
-                "tooltip": false,
-                "viz": false
-              }
-            },
-            "mappings": []
-          },
-          "overrides": []
         },
         "gridPos": {
           "h": 5,
@@ -1071,28 +689,15 @@
             "asTable": true,
             "displayMode": "table",
             "placement": "right",
-            "showLegend": true,
             "sortDesc": true,
             "values": [
               "value",
               "percent"
             ]
           },
-          "pieType": "pie",
-          "reduceOptions": {
-            "calcs": [
-              "lastNotNull"
-            ],
-            "fields": "",
-            "values": false
-          },
-          "tooltip": {
-            "hideZeros": false,
-            "mode": "single",
-            "sort": "none"
-          }
+          "pieType": "pie"
         },
-        "pluginVersion": "12.0.2",
+        "pluginVersion": "v11.4.0",
         "targets": [
           {
             "datasource": {
@@ -1101,8 +706,7 @@
             },
             "expr": "count by (zone) (\n  count by (node_name, zone) (\n    karpenter_nodes_allocatable{\n      job=~\"$job\",\n      nodepool=~\"$nodepool\",\n      zone=~\"$zone\",\n      arch=~\"$arch\",\n      os=~\"$os\",\n      instance_type=~\"$instance_type\",\n      capacity_type=~\"$capacity_type\",\n      nodepool=~\"$nodepool\"\n    }\n  )\n)\n",
             "instant": true,
-            "legendFormat": "{{ zone }}",
-            "refId": "A"
+            "legendFormat": "{{ zone }}"
           }
         ],
         "title": "Nodes by Zone",
@@ -1112,22 +716,6 @@
         "datasource": {
           "type": "datasource",
           "uid": "-- Mixed --"
-        },
-        "fieldConfig": {
-          "defaults": {
-            "color": {
-              "mode": "palette-classic"
-            },
-            "custom": {
-              "hideFrom": {
-                "legend": false,
-                "tooltip": false,
-                "viz": false
-              }
-            },
-            "mappings": []
-          },
-          "overrides": []
         },
         "gridPos": {
           "h": 5,
@@ -1141,28 +729,15 @@
             "asTable": true,
             "displayMode": "table",
             "placement": "right",
-            "showLegend": true,
             "sortDesc": true,
             "values": [
               "value",
               "percent"
             ]
           },
-          "pieType": "pie",
-          "reduceOptions": {
-            "calcs": [
-              "lastNotNull"
-            ],
-            "fields": "",
-            "values": false
-          },
-          "tooltip": {
-            "hideZeros": false,
-            "mode": "single",
-            "sort": "none"
-          }
+          "pieType": "pie"
         },
-        "pluginVersion": "12.0.2",
+        "pluginVersion": "v11.4.0",
         "targets": [
           {
             "datasource": {
@@ -1171,8 +746,7 @@
             },
             "expr": "count by (arch) (\n  count by (node_name, arch) (\n    karpenter_nodes_allocatable{\n      job=~\"$job\",\n      nodepool=~\"$nodepool\",\n      zone=~\"$zone\",\n      arch=~\"$arch\",\n      os=~\"$os\",\n      instance_type=~\"$instance_type\",\n      capacity_type=~\"$capacity_type\",\n      nodepool=~\"$nodepool\"\n    }\n  )\n)\n",
             "instant": true,
-            "legendFormat": "{{ arch }}",
-            "refId": "A"
+            "legendFormat": "{{ arch }}"
           }
         ],
         "title": "Nodes by Arch",
@@ -1182,22 +756,6 @@
         "datasource": {
           "type": "datasource",
           "uid": "-- Mixed --"
-        },
-        "fieldConfig": {
-          "defaults": {
-            "color": {
-              "mode": "palette-classic"
-            },
-            "custom": {
-              "hideFrom": {
-                "legend": false,
-                "tooltip": false,
-                "viz": false
-              }
-            },
-            "mappings": []
-          },
-          "overrides": []
         },
         "gridPos": {
           "h": 5,
@@ -1211,28 +769,15 @@
             "asTable": true,
             "displayMode": "table",
             "placement": "right",
-            "showLegend": true,
             "sortDesc": true,
             "values": [
               "value",
               "percent"
             ]
           },
-          "pieType": "pie",
-          "reduceOptions": {
-            "calcs": [
-              "lastNotNull"
-            ],
-            "fields": "",
-            "values": false
-          },
-          "tooltip": {
-            "hideZeros": false,
-            "mode": "single",
-            "sort": "none"
-          }
+          "pieType": "pie"
         },
-        "pluginVersion": "12.0.2",
+        "pluginVersion": "v11.4.0",
         "targets": [
           {
             "datasource": {
@@ -1241,8 +786,7 @@
             },
             "expr": "count by (os) (\n  count by (node_name, os) (\n    karpenter_nodes_allocatable{\n      job=~\"$job\",\n      region=~\"$region\",\n      zone=~\"$zone\",\n      arch=~\"$arch\",\n      os=~\"$os\",\n      instance_type=~\"$instance_type\",\n      capacity_type=~\"$capacity_type\",\n      nodepool=~\"$nodepool\"\n    }\n  )\n)\n",
             "instant": true,
-            "legendFormat": "{{ os }}",
-            "refId": "A"
+            "legendFormat": "{{ os }}"
           }
         ],
         "title": "Nodes by OS",
@@ -1257,7 +801,6 @@
           "y": 28
         },
         "id": 19,
-        "panels": [],
         "title": "Pod Summary",
         "type": "row"
       },
@@ -1268,12 +811,11 @@
         },
         "fieldConfig": {
           "defaults": {
-            "mappings": [],
             "thresholds": {
-              "mode": "absolute",
               "steps": [
                 {
-                  "color": "red"
+                  "color": "red",
+                  "value": 0
                 },
                 {
                   "color": "green",
@@ -1282,8 +824,7 @@
               ]
             },
             "unit": "short"
-          },
-          "overrides": []
+          }
         },
         "gridPos": {
           "h": 3,
@@ -1293,31 +834,20 @@
         },
         "id": 20,
         "options": {
-          "colorMode": "value",
-          "graphMode": "area",
-          "justifyMode": "auto",
-          "orientation": "auto",
-          "percentChangeColorMode": "standard",
           "reduceOptions": {
             "calcs": [
               "lastNotNull"
-            ],
-            "fields": "",
-            "values": false
-          },
-          "showPercentChange": false,
-          "textMode": "auto",
-          "wideLayout": true
+            ]
+          }
         },
-        "pluginVersion": "12.0.2",
+        "pluginVersion": "v11.4.0",
         "targets": [
           {
             "datasource": {
               "type": "prometheus",
               "uid": "$datasource"
             },
-            "expr": "sum(\n  karpenter_nodes_total_pod_requests{\n    job=~\"$job\",\n    resource_type=\"cpu\",\n    region=~\"$region\",\n    zone=~\"$zone\",\n    arch=~\"$arch\",\n    os=~\"$os\",\n    instance_type=~\"$instance_type\",\n    capacity_type=~\"$capacity_type\",\n    nodepool=~\"$nodepool\"\n  }\n) +\nsum(\n  karpenter_nodes_total_daemon_requests{\n    job=~\"$job\",\n    resource_type=\"cpu\",\n    region=~\"$region\",\n    zone=~\"$zone\",\n    arch=~\"$arch\",\n    os=~\"$os\",\n    instance_type=~\"$instance_type\",\n    capacity_type=~\"$capacity_type\",\n    nodepool=~\"$nodepool\"\n  }\n)\n",
-            "refId": "A"
+            "expr": "sum(\n  karpenter_nodes_total_pod_requests{\n    job=~\"$job\",\n    resource_type=\"cpu\",\n    region=~\"$region\",\n    zone=~\"$zone\",\n    arch=~\"$arch\",\n    os=~\"$os\",\n    instance_type=~\"$instance_type\",\n    capacity_type=~\"$capacity_type\",\n    nodepool=~\"$nodepool\"\n  }\n) +\nsum(\n  karpenter_nodes_total_daemon_requests{\n    job=~\"$job\",\n    resource_type=\"cpu\",\n    region=~\"$region\",\n    zone=~\"$zone\",\n    arch=~\"$arch\",\n    os=~\"$os\",\n    instance_type=~\"$instance_type\",\n    capacity_type=~\"$capacity_type\",\n    nodepool=~\"$nodepool\"\n  }\n)\n"
           }
         ],
         "title": "Pod CPU Requests",
@@ -1330,12 +860,11 @@
         },
         "fieldConfig": {
           "defaults": {
-            "mappings": [],
             "thresholds": {
-              "mode": "absolute",
               "steps": [
                 {
-                  "color": "red"
+                  "color": "red",
+                  "value": 0
                 },
                 {
                   "color": "green",
@@ -1344,8 +873,7 @@
               ]
             },
             "unit": "bytes"
-          },
-          "overrides": []
+          }
         },
         "gridPos": {
           "h": 3,
@@ -1355,31 +883,20 @@
         },
         "id": 21,
         "options": {
-          "colorMode": "value",
-          "graphMode": "area",
-          "justifyMode": "auto",
-          "orientation": "auto",
-          "percentChangeColorMode": "standard",
           "reduceOptions": {
             "calcs": [
               "lastNotNull"
-            ],
-            "fields": "",
-            "values": false
-          },
-          "showPercentChange": false,
-          "textMode": "auto",
-          "wideLayout": true
+            ]
+          }
         },
-        "pluginVersion": "12.0.2",
+        "pluginVersion": "v11.4.0",
         "targets": [
           {
             "datasource": {
               "type": "prometheus",
               "uid": "$datasource"
             },
-            "expr": "sum(\n  karpenter_nodes_total_pod_requests{\n    job=~\"$job\",\n    resource_type=\"memory\",\n    region=~\"$region\",\n    zone=~\"$zone\",\n    arch=~\"$arch\",\n    os=~\"$os\",\n    instance_type=~\"$instance_type\",\n    capacity_type=~\"$capacity_type\",\n    nodepool=~\"$nodepool\"\n  }\n) +\nsum(\n  karpenter_nodes_total_daemon_requests{\n    job=~\"$job\",\n    resource_type=\"memory\",\n    region=~\"$region\",\n    zone=~\"$zone\",\n    arch=~\"$arch\",\n    os=~\"$os\",\n    instance_type=~\"$instance_type\",\n    capacity_type=~\"$capacity_type\",\n    nodepool=~\"$nodepool\"\n  }\n)\n",
-            "refId": "A"
+            "expr": "sum(\n  karpenter_nodes_total_pod_requests{\n    job=~\"$job\",\n    resource_type=\"memory\",\n    region=~\"$region\",\n    zone=~\"$zone\",\n    arch=~\"$arch\",\n    os=~\"$os\",\n    instance_type=~\"$instance_type\",\n    capacity_type=~\"$capacity_type\",\n    nodepool=~\"$nodepool\"\n  }\n) +\nsum(\n  karpenter_nodes_total_daemon_requests{\n    job=~\"$job\",\n    resource_type=\"memory\",\n    region=~\"$region\",\n    zone=~\"$zone\",\n    arch=~\"$arch\",\n    os=~\"$os\",\n    instance_type=~\"$instance_type\",\n    capacity_type=~\"$capacity_type\",\n    nodepool=~\"$nodepool\"\n  }\n)\n"
           }
         ],
         "title": "Pod Memory Requests",
@@ -1392,12 +909,11 @@
         },
         "fieldConfig": {
           "defaults": {
-            "mappings": [],
             "thresholds": {
-              "mode": "absolute",
               "steps": [
                 {
-                  "color": "red"
+                  "color": "red",
+                  "value": 0
                 },
                 {
                   "color": "green",
@@ -1406,8 +922,7 @@
               ]
             },
             "unit": "short"
-          },
-          "overrides": []
+          }
         },
         "gridPos": {
           "h": 3,
@@ -1417,31 +932,20 @@
         },
         "id": 22,
         "options": {
-          "colorMode": "value",
-          "graphMode": "area",
-          "justifyMode": "auto",
-          "orientation": "auto",
-          "percentChangeColorMode": "standard",
           "reduceOptions": {
             "calcs": [
               "lastNotNull"
-            ],
-            "fields": "",
-            "values": false
-          },
-          "showPercentChange": false,
-          "textMode": "auto",
-          "wideLayout": true
+            ]
+          }
         },
-        "pluginVersion": "12.0.2",
+        "pluginVersion": "v11.4.0",
         "targets": [
           {
             "datasource": {
               "type": "prometheus",
               "uid": "$datasource"
             },
-            "expr": "sum(\n  karpenter_nodes_total_pod_limits{\n    job=~\"$job\",\n    resource_type=\"cpu\",\n    region=~\"$region\",\n    zone=~\"$zone\",\n    arch=~\"$arch\",\n    os=~\"$os\",\n    instance_type=~\"$instance_type\",\n    capacity_type=~\"$capacity_type\",\n    nodepool=~\"$nodepool\"\n  }\n) +\nsum(\n  karpenter_nodes_total_daemon_limits{\n    job=~\"$job\",\n    resource_type=\"cpu\",\n    region=~\"$region\",\n    zone=~\"$zone\",\n    arch=~\"$arch\",\n    os=~\"$os\",\n    instance_type=~\"$instance_type\",\n    capacity_type=~\"$capacity_type\",\n    nodepool=~\"$nodepool\"\n  }\n)\n",
-            "refId": "A"
+            "expr": "sum(\n  karpenter_nodes_total_pod_limits{\n    job=~\"$job\",\n    resource_type=\"cpu\",\n    region=~\"$region\",\n    zone=~\"$zone\",\n    arch=~\"$arch\",\n    os=~\"$os\",\n    instance_type=~\"$instance_type\",\n    capacity_type=~\"$capacity_type\",\n    nodepool=~\"$nodepool\"\n  }\n) +\nsum(\n  karpenter_nodes_total_daemon_limits{\n    job=~\"$job\",\n    resource_type=\"cpu\",\n    region=~\"$region\",\n    zone=~\"$zone\",\n    arch=~\"$arch\",\n    os=~\"$os\",\n    instance_type=~\"$instance_type\",\n    capacity_type=~\"$capacity_type\",\n    nodepool=~\"$nodepool\"\n  }\n)\n"
           }
         ],
         "title": "Pod CPU Limits",
@@ -1454,12 +958,11 @@
         },
         "fieldConfig": {
           "defaults": {
-            "mappings": [],
             "thresholds": {
-              "mode": "absolute",
               "steps": [
                 {
-                  "color": "red"
+                  "color": "red",
+                  "value": 0
                 },
                 {
                   "color": "green",
@@ -1468,8 +971,7 @@
               ]
             },
             "unit": "bytes"
-          },
-          "overrides": []
+          }
         },
         "gridPos": {
           "h": 3,
@@ -1479,31 +981,20 @@
         },
         "id": 23,
         "options": {
-          "colorMode": "value",
-          "graphMode": "area",
-          "justifyMode": "auto",
-          "orientation": "auto",
-          "percentChangeColorMode": "standard",
           "reduceOptions": {
             "calcs": [
               "lastNotNull"
-            ],
-            "fields": "",
-            "values": false
-          },
-          "showPercentChange": false,
-          "textMode": "auto",
-          "wideLayout": true
+            ]
+          }
         },
-        "pluginVersion": "12.0.2",
+        "pluginVersion": "v11.4.0",
         "targets": [
           {
             "datasource": {
               "type": "prometheus",
               "uid": "$datasource"
             },
-            "expr": "sum(\n  karpenter_nodes_total_pod_limits{\n    job=~\"$job\",\n    resource_type=\"memory\",\n    region=~\"$region\",\n    zone=~\"$zone\",\n    arch=~\"$arch\",\n    os=~\"$os\",\n    instance_type=~\"$instance_type\",\n    capacity_type=~\"$capacity_type\",\n    nodepool=~\"$nodepool\"\n  }\n) +\nsum(\n  karpenter_nodes_total_daemon_limits{\n    job=~\"$job\",\n    resource_type=\"memory\",\n    region=~\"$region\",\n    zone=~\"$zone\",\n    arch=~\"$arch\",\n    os=~\"$os\",\n    instance_type=~\"$instance_type\",\n    capacity_type=~\"$capacity_type\",\n    nodepool=~\"$nodepool\"\n  }\n)\n",
-            "refId": "A"
+            "expr": "sum(\n  karpenter_nodes_total_pod_limits{\n    job=~\"$job\",\n    resource_type=\"memory\",\n    region=~\"$region\",\n    zone=~\"$zone\",\n    arch=~\"$arch\",\n    os=~\"$os\",\n    instance_type=~\"$instance_type\",\n    capacity_type=~\"$capacity_type\",\n    nodepool=~\"$nodepool\"\n  }\n) +\nsum(\n  karpenter_nodes_total_daemon_limits{\n    job=~\"$job\",\n    resource_type=\"memory\",\n    region=~\"$region\",\n    zone=~\"$zone\",\n    arch=~\"$arch\",\n    os=~\"$os\",\n    instance_type=~\"$instance_type\",\n    capacity_type=~\"$capacity_type\",\n    nodepool=~\"$nodepool\"\n  }\n)\n"
           }
         ],
         "title": "Pod Memory Limits",
@@ -1513,22 +1004,6 @@
         "datasource": {
           "type": "datasource",
           "uid": "-- Mixed --"
-        },
-        "fieldConfig": {
-          "defaults": {
-            "color": {
-              "mode": "palette-classic"
-            },
-            "custom": {
-              "hideFrom": {
-                "legend": false,
-                "tooltip": false,
-                "viz": false
-              }
-            },
-            "mappings": []
-          },
-          "overrides": []
         },
         "gridPos": {
           "h": 5,
@@ -1542,28 +1017,15 @@
             "asTable": true,
             "displayMode": "table",
             "placement": "right",
-            "showLegend": true,
             "sortDesc": true,
             "values": [
               "value",
               "percent"
             ]
           },
-          "pieType": "pie",
-          "reduceOptions": {
-            "calcs": [
-              "lastNotNull"
-            ],
-            "fields": "",
-            "values": false
-          },
-          "tooltip": {
-            "hideZeros": false,
-            "mode": "single",
-            "sort": "none"
-          }
+          "pieType": "pie"
         },
-        "pluginVersion": "12.0.2",
+        "pluginVersion": "v11.4.0",
         "targets": [
           {
             "datasource": {
@@ -1572,8 +1034,7 @@
             },
             "expr": "sum(\n    karpenter_pods_state{\n      job=~\"$job\",\n      nodepool=~\"$nodepool\"\n    }\n) by (nodepool)\n",
             "instant": true,
-            "legendFormat": "{{ nodepool }}",
-            "refId": "A"
+            "legendFormat": "{{ nodepool }}"
           }
         ],
         "title": "Pods by Node Pool",
@@ -1583,22 +1044,6 @@
         "datasource": {
           "type": "datasource",
           "uid": "-- Mixed --"
-        },
-        "fieldConfig": {
-          "defaults": {
-            "color": {
-              "mode": "palette-classic"
-            },
-            "custom": {
-              "hideFrom": {
-                "legend": false,
-                "tooltip": false,
-                "viz": false
-              }
-            },
-            "mappings": []
-          },
-          "overrides": []
         },
         "gridPos": {
           "h": 5,
@@ -1612,28 +1057,15 @@
             "asTable": true,
             "displayMode": "table",
             "placement": "right",
-            "showLegend": true,
             "sortDesc": true,
             "values": [
               "value",
               "percent"
             ]
           },
-          "pieType": "pie",
-          "reduceOptions": {
-            "calcs": [
-              "lastNotNull"
-            ],
-            "fields": "",
-            "values": false
-          },
-          "tooltip": {
-            "hideZeros": false,
-            "mode": "single",
-            "sort": "none"
-          }
+          "pieType": "pie"
         },
-        "pluginVersion": "12.0.2",
+        "pluginVersion": "v11.4.0",
         "targets": [
           {
             "datasource": {
@@ -1642,8 +1074,7 @@
             },
             "expr": "sum(\n    karpenter_pods_state{\n      job=~\"$job\",\n      nodepool=~\"$nodepool\"\n    }\n) by (instance_type)\n",
             "instant": true,
-            "legendFormat": "{{ instance_type }}",
-            "refId": "A"
+            "legendFormat": "{{ instance_type }}"
           }
         ],
         "title": "Pods by Instance Type",
@@ -1653,22 +1084,6 @@
         "datasource": {
           "type": "datasource",
           "uid": "-- Mixed --"
-        },
-        "fieldConfig": {
-          "defaults": {
-            "color": {
-              "mode": "palette-classic"
-            },
-            "custom": {
-              "hideFrom": {
-                "legend": false,
-                "tooltip": false,
-                "viz": false
-              }
-            },
-            "mappings": []
-          },
-          "overrides": []
         },
         "gridPos": {
           "h": 5,
@@ -1682,28 +1097,15 @@
             "asTable": true,
             "displayMode": "table",
             "placement": "right",
-            "showLegend": true,
             "sortDesc": true,
             "values": [
               "value",
               "percent"
             ]
           },
-          "pieType": "pie",
-          "reduceOptions": {
-            "calcs": [
-              "lastNotNull"
-            ],
-            "fields": "",
-            "values": false
-          },
-          "tooltip": {
-            "hideZeros": false,
-            "mode": "single",
-            "sort": "none"
-          }
+          "pieType": "pie"
         },
-        "pluginVersion": "12.0.2",
+        "pluginVersion": "v11.4.0",
         "targets": [
           {
             "datasource": {
@@ -1712,8 +1114,7 @@
             },
             "expr": "sum(\n    karpenter_pods_state{\n      job=~\"$job\",\n      nodepool=~\"$nodepool\"\n    }\n) by (capacity_type)\n",
             "instant": true,
-            "legendFormat": "{{ capacity_type }}",
-            "refId": "A"
+            "legendFormat": "{{ capacity_type }}"
           }
         ],
         "title": "Pods by Capacity Type",
@@ -1725,10 +1126,9 @@
           "h": 1,
           "w": 24,
           "x": 0,
-          "y": 37
+          "y": 36
         },
         "id": 27,
-        "panels": [],
         "title": "Node Pools",
         "type": "row"
       },
@@ -1739,26 +1139,6 @@
         },
         "fieldConfig": {
           "defaults": {
-            "custom": {
-              "align": "auto",
-              "cellOptions": {
-                "type": "auto"
-              },
-              "inspect": false
-            },
-            "mappings": [],
-            "thresholds": {
-              "mode": "absolute",
-              "steps": [
-                {
-                  "color": "green"
-                },
-                {
-                  "color": "red",
-                  "value": 80
-                }
-              ]
-            },
             "unit": "short"
           },
           "overrides": [
@@ -1828,28 +1208,20 @@
           "h": 8,
           "w": 24,
           "x": 0,
-          "y": 38
+          "y": 37
         },
         "id": 28,
         "options": {
-          "cellHeight": "sm",
           "footer": {
-            "countRows": false,
-            "enablePagination": true,
-            "fields": "",
-            "reducer": [
-              "sum"
-            ],
-            "show": false
+            "enablePagination": true
           },
-          "showHeader": true,
           "sortBy": [
             {
               "displayName": "Node Pool"
             }
           ]
         },
-        "pluginVersion": "12.0.2",
+        "pluginVersion": "v11.4.0",
         "targets": [
           {
             "datasource": {
@@ -1858,8 +1230,7 @@
             },
             "expr": "sum(\n  karpenter_nodepools_usage{\n    job=~\"$job\",\n    nodepool=~\"$nodepool\",\n    resource_type=\"cpu\"\n  }\n) by (job, namespace, nodepool)\n",
             "format": "table",
-            "instant": true,
-            "refId": "A"
+            "instant": true
           },
           {
             "datasource": {
@@ -1868,8 +1239,7 @@
             },
             "expr": "sum(\n  karpenter_nodes_allocatable{\n    job=~\"$job\",\n    nodepool=~\"$nodepool\",\n    resource_type=\"cpu\"\n  }\n) by (job, namespace, nodepool)\n",
             "format": "table",
-            "instant": true,
-            "refId": "B"
+            "instant": true
           },
           {
             "datasource": {
@@ -1878,8 +1248,7 @@
             },
             "expr": "sum(\n  karpenter_nodepools_limit{\n    job=~\"$job\",\n    nodepool=~\"$nodepool\",\n    resource_type=\"cpu\"\n  }\n) by (job, namespace, nodepool)\n",
             "format": "table",
-            "instant": true,
-            "refId": "C"
+            "instant": true
           },
           {
             "datasource": {
@@ -1888,8 +1257,7 @@
             },
             "expr": "sum(\n  karpenter_nodepools_usage{\n    job=~\"$job\",\n    nodepool=~\"$nodepool\",\n    resource_type=\"memory\"\n  }\n) by (job, namespace, nodepool)\n",
             "format": "table",
-            "instant": true,
-            "refId": "D"
+            "instant": true
           },
           {
             "datasource": {
@@ -1898,8 +1266,7 @@
             },
             "expr": "sum(\n  karpenter_nodes_allocatable{\n    job=~\"$job\",\n    nodepool=~\"$nodepool\",\n    resource_type=\"memory\"\n  }\n) by (job, namespace, nodepool)\n",
             "format": "table",
-            "instant": true,
-            "refId": "E"
+            "instant": true
           },
           {
             "datasource": {
@@ -1908,8 +1275,7 @@
             },
             "expr": "sum(\n  karpenter_nodepools_limit{\n    job=~\"$job\",\n    nodepool=~\"$nodepool\",\n    resource_type=\"memory\"\n  }\n) by (job, namespace, nodepool)\n",
             "format": "table",
-            "instant": true,
-            "refId": "F"
+            "instant": true
           },
           {
             "datasource": {
@@ -1918,8 +1284,7 @@
             },
             "expr": "sum(\n  karpenter_nodepools_usage{\n    job=~\"$job\",\n    nodepool=~\"$nodepool\",\n    resource_type=\"nodes\"\n  }\n) by (job, namespace, nodepool)\n",
             "format": "table",
-            "instant": true,
-            "refId": "G"
+            "instant": true
           },
           {
             "datasource": {
@@ -1928,8 +1293,7 @@
             },
             "expr": "sum(\n  karpenter_nodepools_limit{\n    job=~\"$job\",\n    nodepool=~\"$nodepool\",\n    resource_type=\"nodes\"\n  }\n) by (job, namespace, nodepool)\n",
             "format": "table",
-            "instant": true,
-            "refId": "H"
+            "instant": true
           },
           {
             "datasource": {
@@ -1938,8 +1302,7 @@
             },
             "expr": "sum(\n  karpenter_nodepools_usage{\n    job=~\"$job\",\n    nodepool=~\"$nodepool\",\n    resource_type=\"pods\"\n  }\n) by (job, namespace, nodepool)\n",
             "format": "table",
-            "instant": true,
-            "refId": "I"
+            "instant": true
           },
           {
             "datasource": {
@@ -1948,8 +1311,7 @@
             },
             "expr": "sum(\n  karpenter_nodepools_limit{\n    job=~\"$job\",\n    nodepool=~\"$nodepool\",\n    resource_type=\"pods\"\n  }\n) by (job, namespace, nodepool)\n",
             "format": "table",
-            "instant": true,
-            "refId": "J"
+            "instant": true
           },
           {
             "datasource": {
@@ -1958,8 +1320,7 @@
             },
             "expr": "sum(\n  karpenter_nodepools_usage{\n    job=~\"$job\",\n    nodepool=~\"$nodepool\",\n    resource_type=\"ephemeral_storage\"\n  }\n) by (job, namespace, nodepool)\n",
             "format": "table",
-            "instant": true,
-            "refId": "K"
+            "instant": true
           },
           {
             "datasource": {
@@ -1968,8 +1329,7 @@
             },
             "expr": "sum(\n  karpenter_nodepools_limit{\n    job=~\"$job\",\n    nodepool=~\"$nodepool\",\n    resource_type=\"ephemeral_storage\"\n  }\n) by (job, namespace, nodepool)\n",
             "format": "table",
-            "instant": true,
-            "refId": "L"
+            "instant": true
           }
         ],
         "title": "Node Pools",
@@ -2027,10 +1387,9 @@
           "h": 1,
           "w": 24,
           "x": 0,
-          "y": 46
+          "y": 45
         },
         "id": 29,
-        "panels": [],
         "title": "Nodes",
         "type": "row"
       },
@@ -2041,28 +1400,6 @@
         },
         "fieldConfig": {
           "defaults": {
-            "custom": {
-              "align": "auto",
-              "cellOptions": {
-                "type": "auto",
-                "wrapText": false
-              },
-              "inspect": false
-            },
-            "decimals": 2,
-            "mappings": [],
-            "thresholds": {
-              "mode": "absolute",
-              "steps": [
-                {
-                  "color": "green"
-                },
-                {
-                  "color": "red",
-                  "value": 80
-                }
-              ]
-            },
             "unit": "short"
           },
           "overrides": [
@@ -2088,7 +1425,8 @@
                     "mode": "percentage",
                     "steps": [
                       {
-                        "color": "green"
+                        "color": "green",
+                        "value": 0
                       },
                       {
                         "color": "yellow",
@@ -2129,7 +1467,8 @@
                     "mode": "percentage",
                     "steps": [
                       {
-                        "color": "green"
+                        "color": "green",
+                        "value": 0
                       },
                       {
                         "color": "yellow",
@@ -2163,24 +1502,16 @@
           ]
         },
         "gridPos": {
-          "h": 15,
+          "h": 8,
           "w": 24,
           "x": 0,
-          "y": 47
+          "y": 46
         },
         "id": 30,
         "options": {
-          "cellHeight": "sm",
           "footer": {
-            "countRows": false,
-            "enablePagination": true,
-            "fields": "",
-            "reducer": [
-              "sum"
-            ],
-            "show": false
+            "enablePagination": true
           },
-          "showHeader": true,
           "sortBy": [
             {
               "desc": true,
@@ -2188,7 +1519,7 @@
             }
           ]
         },
-        "pluginVersion": "12.0.2",
+        "pluginVersion": "v11.4.0",
         "targets": [
           {
             "datasource": {
@@ -2197,8 +1528,7 @@
             },
             "expr": "(\n  (\n    sum(\n      karpenter_nodes_total_pod_requests{\n        job=~\"$job\",\n        resource_type=\"cpu\",\n        region=~\"$region\",\n        zone=~\"$zone\",\n        arch=~\"$arch\",\n        os=~\"$os\",\n        instance_type=~\"$instance_type\",\n        capacity_type=~\"$capacity_type\",\n        nodepool=~\"$nodepool\"\n      }\n    ) by (node_name, nodepool, instance_type, instance_memory, instance_cpu, instance_network_bandwidth, region, zone, os, capacity_type, arch)\n    +\n    sum(\n      karpenter_nodes_total_daemon_requests{\n        job=~\"$job\",\n        resource_type=\"cpu\",\n        region=~\"$region\",\n        zone=~\"$zone\",\n        arch=~\"$arch\",\n        os=~\"$os\",\n        instance_type=~\"$instance_type\",\n        capacity_type=~\"$capacity_type\",\n        nodepool=~\"$nodepool\"\n      }\n    ) by (node_name, nodepool, instance_type, instance_memory, instance_cpu, instance_network_bandwidth, region, zone, os, capacity_type, arch)\n  ) /\n  sum(\n    karpenter_nodes_allocatable{\n      job=~\"$job\",\n      resource_type=\"cpu\",\n      region=~\"$region\",\n      zone=~\"$zone\",\n      arch=~\"$arch\",\n      os=~\"$os\",\n      instance_type=~\"$instance_type\",\n      capacity_type=~\"$capacity_type\",\n      nodepool=~\"$nodepool\"\n    }\n  ) by (node_name, nodepool, instance_type, instance_memory, instance_cpu, instance_network_bandwidth, region, zone, os, capacity_type, arch)\n) * 100\n",
             "format": "table",
-            "instant": true,
-            "refId": "A"
+            "instant": true
           },
           {
             "datasource": {
@@ -2207,8 +1537,7 @@
             },
             "expr": "(\n  (\n    sum(\n      karpenter_nodes_total_pod_requests{\n        job=~\"$job\",\n        resource_type=\"memory\",\n        region=~\"$region\",\n        zone=~\"$zone\",\n        arch=~\"$arch\",\n        os=~\"$os\",\n        instance_type=~\"$instance_type\",\n        capacity_type=~\"$capacity_type\",\n        nodepool=~\"$nodepool\"\n      }\n    ) by (node_name, nodepool, instance_type, instance_memory, instance_memory, instance_network_bandwidth, region, zone, os, capacity_type, arch)\n    +\n    sum(\n      karpenter_nodes_total_daemon_requests{\n        job=~\"$job\",\n        resource_type=\"memory\",\n        region=~\"$region\",\n        zone=~\"$zone\",\n        arch=~\"$arch\",\n        os=~\"$os\",\n        instance_type=~\"$instance_type\",\n        capacity_type=~\"$capacity_type\",\n        nodepool=~\"$nodepool\"\n      }\n    ) by (node_name, nodepool, instance_type, instance_memory, instance_memory, instance_network_bandwidth, region, zone, os, capacity_type, arch)\n  ) /\n  sum(\n    karpenter_nodes_allocatable{\n      job=~\"$job\",\n      resource_type=\"memory\",\n      region=~\"$region\",\n      zone=~\"$zone\",\n      arch=~\"$arch\",\n      os=~\"$os\",\n      instance_type=~\"$instance_type\",\n      capacity_type=~\"$capacity_type\",\n      nodepool=~\"$nodepool\"\n    }\n  ) by (node_name, nodepool, instance_type, instance_memory, instance_memory, instance_network_bandwidth, region, zone, os, capacity_type, arch)\n) * 100\n",
             "format": "table",
-            "instant": true,
-            "refId": "B"
+            "instant": true
           }
         ],
         "title": "Nodes",
@@ -2255,9 +1584,7 @@
         "type": "table"
       }
     ],
-    "preload": false,
-    "refresh": "5s",
-    "schemaVersion": 41,
+    "schemaVersion": 39,
     "tags": [
       "kubernetes",
       "autoscaling",
@@ -2267,41 +1594,24 @@
     "templating": {
       "list": [
         {
-          "current": {
-            "text": "Prometheus-CT-prod-devops",
-            "value": "P845053975AE9A115"
-          },
           "label": "Data source",
           "name": "datasource",
-          "options": [],
           "query": "prometheus",
-          "refresh": 1,
           "type": "datasource"
         },
         {
-          "current": {
-            "text": "karpenter",
-            "value": "karpenter"
-          },
           "datasource": {
             "type": "prometheus",
             "uid": "${datasource}"
           },
           "label": "Job",
           "name": "job",
-          "options": [],
           "query": "label_values(karpenter_nodes_allocatable{}, job)",
           "refresh": 2,
           "sort": 1,
           "type": "query"
         },
         {
-          "current": {
-            "text": "All",
-            "value": [
-              "$__all"
-            ]
-          },
           "datasource": {
             "type": "prometheus",
             "uid": "${datasource}"
@@ -2310,19 +1620,12 @@
           "label": "Region",
           "multi": true,
           "name": "region",
-          "options": [],
           "query": "label_values(karpenter_nodes_allocatable{job=~\"$job\"}, region)",
           "refresh": 2,
           "sort": 1,
           "type": "query"
         },
         {
-          "current": {
-            "text": "All",
-            "value": [
-              "$__all"
-            ]
-          },
           "datasource": {
             "type": "prometheus",
             "uid": "${datasource}"
@@ -2331,19 +1634,12 @@
           "label": "Zone",
           "multi": true,
           "name": "zone",
-          "options": [],
           "query": "label_values(karpenter_nodes_allocatable{job=~\"$job\", region=~\"$region\"}, zone)",
           "refresh": 2,
           "sort": 1,
           "type": "query"
         },
         {
-          "current": {
-            "text": "All",
-            "value": [
-              "$__all"
-            ]
-          },
           "datasource": {
             "type": "prometheus",
             "uid": "${datasource}"
@@ -2352,19 +1648,12 @@
           "label": "Architecture",
           "multi": true,
           "name": "arch",
-          "options": [],
           "query": "label_values(karpenter_nodes_allocatable{job=~\"$job\", region=~\"$region\", zone=~\"$zone\"}, arch)",
           "refresh": 2,
           "sort": 1,
           "type": "query"
         },
         {
-          "current": {
-            "text": "All",
-            "value": [
-              "$__all"
-            ]
-          },
           "datasource": {
             "type": "prometheus",
             "uid": "${datasource}"
@@ -2373,19 +1662,12 @@
           "label": "Operating System",
           "multi": true,
           "name": "os",
-          "options": [],
           "query": "label_values(karpenter_nodes_allocatable{job=~\"$job\", region=~\"$region\", zone=~\"$zone\", arch=~\"$arch\"}, os)",
           "refresh": 2,
           "sort": 1,
           "type": "query"
         },
         {
-          "current": {
-            "text": "All",
-            "value": [
-              "$__all"
-            ]
-          },
           "datasource": {
             "type": "prometheus",
             "uid": "${datasource}"
@@ -2394,19 +1676,12 @@
           "label": "Instance Type",
           "multi": true,
           "name": "instance_type",
-          "options": [],
           "query": "label_values(karpenter_nodes_allocatable{job=~\"$job\", region=~\"$region\", zone=~\"$zone\", arch=~\"$arch\", os=~\"$os\"}, instance_type)",
           "refresh": 2,
           "sort": 1,
           "type": "query"
         },
         {
-          "current": {
-            "text": "All",
-            "value": [
-              "$__all"
-            ]
-          },
           "datasource": {
             "type": "prometheus",
             "uid": "${datasource}"
@@ -2415,21 +1690,12 @@
           "label": "Capacity Type",
           "multi": true,
           "name": "capacity_type",
-          "options": [],
           "query": "label_values(karpenter_nodes_allocatable{job=~\"$job\", region=~\"$region\", zone=~\"$zone\", arch=~\"$arch\", os=~\"$os\", instance_type=~\"$instance_type\"}, capacity_type)",
           "refresh": 2,
           "sort": 1,
           "type": "query"
         },
         {
-          "current": {
-            "text": [
-              "tajawal-pd-eks-node-on-demand-single-az-observability-nodepool"
-            ],
-            "value": [
-              "tajawal-pd-eks-node-on-demand-single-az-observability-nodepool"
-            ]
-          },
           "datasource": {
             "type": "prometheus",
             "uid": "${datasource}"
@@ -2438,7 +1704,6 @@
           "label": "Node Pool",
           "multi": true,
           "name": "nodepool",
-          "options": [],
           "query": "label_values(karpenter_nodes_allocatable{job=~\"$job\", region=~\"$region\", zone=~\"$zone\", arch=~\"$arch\", os=~\"$os\", instance_type=~\"$instance_type\", capacity_type=~\"$capacity_type\"}, nodepool)",
           "refresh": 2,
           "sort": 1,
@@ -2447,10 +1712,9 @@
       ]
     },
     "time": {
-      "from": "now-5m",
+      "from": "now-24h",
       "to": "now"
     },
-    "timepicker": {},
     "timezone": "utc",
     "title": "Kubernetes / Autoscaling / Karpenter / Overview"
   }
