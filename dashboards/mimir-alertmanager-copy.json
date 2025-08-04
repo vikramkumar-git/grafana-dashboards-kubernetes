@@ -1,5 +1,5 @@
 {
-  "apiVersion": "dashboard.grafana.app/v1beta1",
+  "apiVersion": "dashboard.grafana.app/v0alpha1",
   "kind": "Dashboard",
   "metadata": {
     "name": "c4c06570-7aee-4e6d-9c75-c3e351b67f38"
@@ -84,7 +84,7 @@
         },
         "id": 1,
         "options": {
-          "colorMode": "value",
+          "colorMode": "none",
           "graphMode": "none",
           "justifyMode": "auto",
           "orientation": "horizontal",
@@ -147,7 +147,7 @@
         },
         "id": 3,
         "options": {
-          "colorMode": "value",
+          "colorMode": "none",
           "graphMode": "none",
           "justifyMode": "auto",
           "orientation": "horizontal",
@@ -204,13 +204,13 @@
         },
         "gridPos": {
           "h": 3,
-          "w": 5,
+          "w": 6,
           "x": 13,
           "y": 1
         },
         "id": 2,
         "options": {
-          "colorMode": "value",
+          "colorMode": "none",
           "graphMode": "none",
           "justifyMode": "auto",
           "orientation": "horizontal",
@@ -255,6 +255,10 @@
                 {
                   "color": "green",
                   "value": 0
+                },
+                {
+                  "color": "red",
+                  "value": 80
                 }
               ]
             },
@@ -264,20 +268,20 @@
         },
         "gridPos": {
           "h": 3,
-          "w": 6,
-          "x": 18,
+          "w": 5,
+          "x": 19,
           "y": 1
         },
         "id": 43,
         "options": {
-          "colorMode": "value",
+          "colorMode": "none",
           "graphMode": "none",
-          "justifyMode": "center",
-          "orientation": "auto",
+          "justifyMode": "auto",
+          "orientation": "horizontal",
           "percentChangeColorMode": "standard",
           "reduceOptions": {
             "calcs": [
-              "lastNotNull"
+              "mean"
             ],
             "fields": "",
             "values": false
@@ -1254,43 +1258,18 @@
         },
         "fieldConfig": {
           "defaults": {
-            "color": {
-              "mode": "palette-classic"
-            },
             "custom": {
-              "axisBorderShow": false,
-              "axisCenteredZero": false,
-              "axisColorMode": "text",
-              "axisLabel": "",
-              "axisPlacement": "auto",
-              "barAlignment": 0,
-              "barWidthFactor": 0.6,
               "drawStyle": "line",
               "fillOpacity": 1,
-              "gradientMode": "none",
-              "hideFrom": {
-                "legend": false,
-                "tooltip": false,
-                "viz": false
-              },
-              "insertNulls": false,
-              "lineInterpolation": "linear",
               "lineWidth": 1,
               "pointSize": 5,
-              "scaleDistribution": {
-                "type": "linear"
-              },
               "showPoints": "never",
               "spanNulls": false,
               "stacking": {
                 "group": "A",
                 "mode": "none"
-              },
-              "thresholdsStyle": {
-                "mode": "off"
               }
             },
-            "mappings": [],
             "min": 0,
             "thresholds": {
               "mode": "absolute",
@@ -1340,18 +1319,13 @@
         "id": 8,
         "options": {
           "legend": {
-            "calcs": [],
-            "displayMode": "list",
-            "placement": "bottom",
             "showLegend": true
           },
           "tooltip": {
-            "hideZeros": false,
             "mode": "multi",
             "sort": "none"
           }
         },
-        "pluginVersion": "12.1.0",
         "targets": [
           {
             "datasource": {
@@ -1381,43 +1355,18 @@
         },
         "fieldConfig": {
           "defaults": {
-            "color": {
-              "mode": "palette-classic"
-            },
             "custom": {
-              "axisBorderShow": false,
-              "axisCenteredZero": false,
-              "axisColorMode": "text",
-              "axisLabel": "",
-              "axisPlacement": "auto",
-              "barAlignment": 0,
-              "barWidthFactor": 0.6,
               "drawStyle": "line",
               "fillOpacity": 1,
-              "gradientMode": "none",
-              "hideFrom": {
-                "legend": false,
-                "tooltip": false,
-                "viz": false
-              },
-              "insertNulls": false,
-              "lineInterpolation": "linear",
               "lineWidth": 1,
               "pointSize": 5,
-              "scaleDistribution": {
-                "type": "linear"
-              },
               "showPoints": "never",
               "spanNulls": false,
               "stacking": {
                 "group": "A",
                 "mode": "none"
-              },
-              "thresholdsStyle": {
-                "mode": "off"
               }
             },
-            "mappings": [],
             "min": 0,
             "thresholds": {
               "mode": "absolute",
@@ -1436,18 +1385,13 @@
         "id": 9,
         "options": {
           "legend": {
-            "calcs": [],
-            "displayMode": "list",
-            "placement": "bottom",
             "showLegend": true
           },
           "tooltip": {
-            "hideZeros": false,
             "mode": "multi",
             "sort": "none"
           }
         },
-        "pluginVersion": "12.1.0",
         "targets": [
           {
             "datasource": {
@@ -1477,43 +1421,18 @@
         },
         "fieldConfig": {
           "defaults": {
-            "color": {
-              "mode": "palette-classic"
-            },
             "custom": {
-              "axisBorderShow": false,
-              "axisCenteredZero": false,
-              "axisColorMode": "text",
-              "axisLabel": "",
-              "axisPlacement": "auto",
-              "barAlignment": 0,
-              "barWidthFactor": 0.6,
               "drawStyle": "line",
               "fillOpacity": 1,
-              "gradientMode": "none",
-              "hideFrom": {
-                "legend": false,
-                "tooltip": false,
-                "viz": false
-              },
-              "insertNulls": false,
-              "lineInterpolation": "linear",
               "lineWidth": 1,
               "pointSize": 5,
-              "scaleDistribution": {
-                "type": "linear"
-              },
               "showPoints": "never",
               "spanNulls": false,
               "stacking": {
                 "group": "A",
                 "mode": "none"
-              },
-              "thresholdsStyle": {
-                "mode": "off"
               }
             },
-            "mappings": [],
             "min": 0,
             "thresholds": {
               "mode": "absolute",
@@ -1532,18 +1451,13 @@
         "id": 10,
         "options": {
           "legend": {
-            "calcs": [],
-            "displayMode": "list",
-            "placement": "bottom",
             "showLegend": true
           },
           "tooltip": {
-            "hideZeros": false,
             "mode": "multi",
             "sort": "none"
           }
         },
-        "pluginVersion": "12.1.0",
         "targets": [
           {
             "datasource": {
@@ -1595,43 +1509,18 @@
         },
         "fieldConfig": {
           "defaults": {
-            "color": {
-              "mode": "palette-classic"
-            },
             "custom": {
-              "axisBorderShow": false,
-              "axisCenteredZero": false,
-              "axisColorMode": "text",
-              "axisLabel": "",
-              "axisPlacement": "auto",
-              "barAlignment": 0,
-              "barWidthFactor": 0.6,
               "drawStyle": "line",
               "fillOpacity": 100,
-              "gradientMode": "none",
-              "hideFrom": {
-                "legend": false,
-                "tooltip": false,
-                "viz": false
-              },
-              "insertNulls": false,
-              "lineInterpolation": "linear",
               "lineWidth": 0,
               "pointSize": 5,
-              "scaleDistribution": {
-                "type": "linear"
-              },
               "showPoints": "never",
               "spanNulls": false,
               "stacking": {
                 "group": "A",
                 "mode": "normal"
-              },
-              "thresholdsStyle": {
-                "mode": "off"
               }
             },
-            "mappings": [],
             "min": 0,
             "thresholds": {
               "mode": "absolute",
@@ -1650,18 +1539,13 @@
         "id": 11,
         "options": {
           "legend": {
-            "calcs": [],
-            "displayMode": "list",
-            "placement": "bottom",
             "showLegend": true
           },
           "tooltip": {
-            "hideZeros": false,
             "mode": "multi",
             "sort": "none"
           }
         },
-        "pluginVersion": "12.1.0",
         "targets": [
           {
             "datasource": {
@@ -1682,59 +1566,9 @@
         },
         "fieldConfig": {
           "defaults": {
-            "color": {
-              "mode": "palette-classic"
-            },
-            "custom": {
-              "axisBorderShow": false,
-              "axisCenteredZero": false,
-              "axisColorMode": "text",
-              "axisLabel": "",
-              "axisPlacement": "auto",
-              "barAlignment": 0,
-              "barWidthFactor": 0.6,
-              "drawStyle": "line",
-              "fillOpacity": 0,
-              "gradientMode": "none",
-              "hideFrom": {
-                "legend": false,
-                "tooltip": false,
-                "viz": false
-              },
-              "insertNulls": false,
-              "lineInterpolation": "linear",
-              "lineWidth": 1,
-              "pointSize": 5,
-              "scaleDistribution": {
-                "type": "linear"
-              },
-              "showPoints": "auto",
-              "spanNulls": false,
-              "stacking": {
-                "group": "A",
-                "mode": "none"
-              },
-              "thresholdsStyle": {
-                "mode": "off"
-              }
-            },
-            "mappings": [],
             "max": 1,
             "min": 0,
             "noValue": "0",
-            "thresholds": {
-              "mode": "absolute",
-              "steps": [
-                {
-                  "color": "green",
-                  "value": 0
-                },
-                {
-                  "color": "red",
-                  "value": 80
-                }
-              ]
-            },
             "unit": "percentunit"
           },
           "overrides": []
@@ -1748,18 +1582,13 @@
         "id": 12,
         "options": {
           "legend": {
-            "calcs": [],
-            "displayMode": "list",
-            "placement": "bottom",
             "showLegend": true
           },
           "tooltip": {
-            "hideZeros": false,
             "mode": "multi",
             "sort": "none"
           }
         },
-        "pluginVersion": "12.1.0",
         "targets": [
           {
             "datasource": {
@@ -1780,43 +1609,18 @@
         },
         "fieldConfig": {
           "defaults": {
-            "color": {
-              "mode": "palette-classic"
-            },
             "custom": {
-              "axisBorderShow": false,
-              "axisCenteredZero": false,
-              "axisColorMode": "text",
-              "axisLabel": "",
-              "axisPlacement": "auto",
-              "barAlignment": 0,
-              "barWidthFactor": 0.6,
               "drawStyle": "line",
               "fillOpacity": 1,
-              "gradientMode": "none",
-              "hideFrom": {
-                "legend": false,
-                "tooltip": false,
-                "viz": false
-              },
-              "insertNulls": false,
-              "lineInterpolation": "linear",
               "lineWidth": 1,
               "pointSize": 5,
-              "scaleDistribution": {
-                "type": "linear"
-              },
               "showPoints": "never",
               "spanNulls": false,
               "stacking": {
                 "group": "A",
                 "mode": "none"
-              },
-              "thresholdsStyle": {
-                "mode": "off"
               }
             },
-            "mappings": [],
             "min": 0,
             "thresholds": {
               "mode": "absolute",
@@ -1835,18 +1639,13 @@
         "id": 13,
         "options": {
           "legend": {
-            "calcs": [],
-            "displayMode": "list",
-            "placement": "bottom",
             "showLegend": true
           },
           "tooltip": {
-            "hideZeros": false,
             "mode": "multi",
             "sort": "none"
           }
         },
-        "pluginVersion": "12.1.0",
         "targets": [
           {
             "datasource": {
@@ -1885,43 +1684,18 @@
         },
         "fieldConfig": {
           "defaults": {
-            "color": {
-              "mode": "palette-classic"
-            },
             "custom": {
-              "axisBorderShow": false,
-              "axisCenteredZero": false,
-              "axisColorMode": "text",
-              "axisLabel": "",
-              "axisPlacement": "auto",
-              "barAlignment": 0,
-              "barWidthFactor": 0.6,
               "drawStyle": "line",
               "fillOpacity": 1,
-              "gradientMode": "none",
-              "hideFrom": {
-                "legend": false,
-                "tooltip": false,
-                "viz": false
-              },
-              "insertNulls": false,
-              "lineInterpolation": "linear",
               "lineWidth": 1,
               "pointSize": 5,
-              "scaleDistribution": {
-                "type": "linear"
-              },
               "showPoints": "never",
               "spanNulls": false,
               "stacking": {
                 "group": "A",
                 "mode": "none"
-              },
-              "thresholdsStyle": {
-                "mode": "off"
               }
             },
-            "mappings": [],
             "min": 0,
             "thresholds": {
               "mode": "absolute",
@@ -1940,18 +1714,13 @@
         "id": 14,
         "options": {
           "legend": {
-            "calcs": [],
-            "displayMode": "list",
-            "placement": "bottom",
             "showLegend": true
           },
           "tooltip": {
-            "hideZeros": false,
             "mode": "multi",
             "sort": "none"
           }
         },
-        "pluginVersion": "12.1.0",
         "targets": [
           {
             "datasource": {
@@ -2003,43 +1772,18 @@
         },
         "fieldConfig": {
           "defaults": {
-            "color": {
-              "mode": "palette-classic"
-            },
             "custom": {
-              "axisBorderShow": false,
-              "axisCenteredZero": false,
-              "axisColorMode": "text",
-              "axisLabel": "",
-              "axisPlacement": "auto",
-              "barAlignment": 0,
-              "barWidthFactor": 0.6,
               "drawStyle": "line",
               "fillOpacity": 1,
-              "gradientMode": "none",
-              "hideFrom": {
-                "legend": false,
-                "tooltip": false,
-                "viz": false
-              },
-              "insertNulls": false,
-              "lineInterpolation": "linear",
               "lineWidth": 1,
               "pointSize": 5,
-              "scaleDistribution": {
-                "type": "linear"
-              },
               "showPoints": "never",
               "spanNulls": false,
               "stacking": {
                 "group": "A",
                 "mode": "none"
-              },
-              "thresholdsStyle": {
-                "mode": "off"
               }
             },
-            "mappings": [],
             "min": 0,
             "thresholds": {
               "mode": "absolute",
@@ -2058,18 +1802,13 @@
         "id": 15,
         "options": {
           "legend": {
-            "calcs": [],
-            "displayMode": "list",
-            "placement": "bottom",
             "showLegend": true
           },
           "tooltip": {
-            "hideZeros": false,
             "mode": "multi",
             "sort": "none"
           }
         },
-        "pluginVersion": "12.1.0",
         "targets": [
           {
             "datasource": {
@@ -2108,43 +1847,18 @@
         },
         "fieldConfig": {
           "defaults": {
-            "color": {
-              "mode": "palette-classic"
-            },
             "custom": {
-              "axisBorderShow": false,
-              "axisCenteredZero": false,
-              "axisColorMode": "text",
-              "axisLabel": "",
-              "axisPlacement": "auto",
-              "barAlignment": 0,
-              "barWidthFactor": 0.6,
               "drawStyle": "line",
               "fillOpacity": 1,
-              "gradientMode": "none",
-              "hideFrom": {
-                "legend": false,
-                "tooltip": false,
-                "viz": false
-              },
-              "insertNulls": false,
-              "lineInterpolation": "linear",
               "lineWidth": 1,
               "pointSize": 5,
-              "scaleDistribution": {
-                "type": "linear"
-              },
               "showPoints": "never",
               "spanNulls": false,
               "stacking": {
                 "group": "A",
                 "mode": "none"
-              },
-              "thresholdsStyle": {
-                "mode": "off"
               }
             },
-            "mappings": [],
             "min": 0,
             "thresholds": {
               "mode": "absolute",
@@ -2163,18 +1877,13 @@
         "id": 16,
         "options": {
           "legend": {
-            "calcs": [],
-            "displayMode": "list",
-            "placement": "bottom",
             "showLegend": true
           },
           "tooltip": {
-            "hideZeros": false,
             "mode": "multi",
             "sort": "none"
           }
         },
-        "pluginVersion": "12.1.0",
         "targets": [
           {
             "datasource": {
@@ -2213,43 +1922,18 @@
         },
         "fieldConfig": {
           "defaults": {
-            "color": {
-              "mode": "palette-classic"
-            },
             "custom": {
-              "axisBorderShow": false,
-              "axisCenteredZero": false,
-              "axisColorMode": "text",
-              "axisLabel": "",
-              "axisPlacement": "auto",
-              "barAlignment": 0,
-              "barWidthFactor": 0.6,
               "drawStyle": "line",
               "fillOpacity": 1,
-              "gradientMode": "none",
-              "hideFrom": {
-                "legend": false,
-                "tooltip": false,
-                "viz": false
-              },
-              "insertNulls": false,
-              "lineInterpolation": "linear",
               "lineWidth": 1,
               "pointSize": 5,
-              "scaleDistribution": {
-                "type": "linear"
-              },
               "showPoints": "never",
               "spanNulls": false,
               "stacking": {
                 "group": "A",
                 "mode": "none"
-              },
-              "thresholdsStyle": {
-                "mode": "off"
               }
             },
-            "mappings": [],
             "min": 0,
             "thresholds": {
               "mode": "absolute",
@@ -2268,18 +1952,13 @@
         "id": 17,
         "options": {
           "legend": {
-            "calcs": [],
-            "displayMode": "list",
-            "placement": "bottom",
             "showLegend": true
           },
           "tooltip": {
-            "hideZeros": false,
             "mode": "multi",
             "sort": "none"
           }
         },
-        "pluginVersion": "12.1.0",
         "targets": [
           {
             "datasource": {
@@ -2318,43 +1997,18 @@
         },
         "fieldConfig": {
           "defaults": {
-            "color": {
-              "mode": "palette-classic"
-            },
             "custom": {
-              "axisBorderShow": false,
-              "axisCenteredZero": false,
-              "axisColorMode": "text",
-              "axisLabel": "",
-              "axisPlacement": "auto",
-              "barAlignment": 0,
-              "barWidthFactor": 0.6,
               "drawStyle": "line",
               "fillOpacity": 1,
-              "gradientMode": "none",
-              "hideFrom": {
-                "legend": false,
-                "tooltip": false,
-                "viz": false
-              },
-              "insertNulls": false,
-              "lineInterpolation": "linear",
               "lineWidth": 1,
               "pointSize": 5,
-              "scaleDistribution": {
-                "type": "linear"
-              },
               "showPoints": "never",
               "spanNulls": false,
               "stacking": {
                 "group": "A",
                 "mode": "none"
-              },
-              "thresholdsStyle": {
-                "mode": "off"
               }
             },
-            "mappings": [],
             "min": 0,
             "thresholds": {
               "mode": "absolute",
@@ -2373,18 +2027,13 @@
         "id": 18,
         "options": {
           "legend": {
-            "calcs": [],
-            "displayMode": "list",
-            "placement": "bottom",
             "showLegend": true
           },
           "tooltip": {
-            "hideZeros": false,
             "mode": "multi",
             "sort": "none"
           }
         },
-        "pluginVersion": "12.1.0",
         "targets": [
           {
             "datasource": {
@@ -2436,43 +2085,18 @@
         },
         "fieldConfig": {
           "defaults": {
-            "color": {
-              "mode": "palette-classic"
-            },
             "custom": {
-              "axisBorderShow": false,
-              "axisCenteredZero": false,
-              "axisColorMode": "text",
-              "axisLabel": "",
-              "axisPlacement": "auto",
-              "barAlignment": 0,
-              "barWidthFactor": 0.6,
               "drawStyle": "line",
               "fillOpacity": 100,
-              "gradientMode": "none",
-              "hideFrom": {
-                "legend": false,
-                "tooltip": false,
-                "viz": false
-              },
-              "insertNulls": false,
-              "lineInterpolation": "linear",
               "lineWidth": 0,
               "pointSize": 5,
-              "scaleDistribution": {
-                "type": "linear"
-              },
               "showPoints": "never",
               "spanNulls": false,
               "stacking": {
                 "group": "A",
                 "mode": "normal"
-              },
-              "thresholdsStyle": {
-                "mode": "off"
               }
             },
-            "mappings": [],
             "min": 0,
             "thresholds": {
               "mode": "absolute",
@@ -2491,18 +2115,13 @@
         "id": 19,
         "options": {
           "legend": {
-            "calcs": [],
-            "displayMode": "list",
-            "placement": "bottom",
             "showLegend": true
           },
           "tooltip": {
-            "hideZeros": false,
             "mode": "multi",
             "sort": "none"
           }
         },
-        "pluginVersion": "12.1.0",
         "targets": [
           {
             "datasource": {
@@ -2523,43 +2142,18 @@
         },
         "fieldConfig": {
           "defaults": {
-            "color": {
-              "mode": "palette-classic"
-            },
             "custom": {
-              "axisBorderShow": false,
-              "axisCenteredZero": false,
-              "axisColorMode": "text",
-              "axisLabel": "",
-              "axisPlacement": "auto",
-              "barAlignment": 0,
-              "barWidthFactor": 0.6,
               "drawStyle": "line",
               "fillOpacity": 100,
-              "gradientMode": "none",
-              "hideFrom": {
-                "legend": false,
-                "tooltip": false,
-                "viz": false
-              },
-              "insertNulls": false,
-              "lineInterpolation": "linear",
               "lineWidth": 0,
               "pointSize": 5,
-              "scaleDistribution": {
-                "type": "linear"
-              },
               "showPoints": "never",
               "spanNulls": false,
               "stacking": {
                 "group": "A",
                 "mode": "normal"
-              },
-              "thresholdsStyle": {
-                "mode": "off"
               }
             },
-            "mappings": [],
             "min": 0,
             "thresholds": {
               "mode": "absolute",
@@ -2578,18 +2172,13 @@
         "id": 20,
         "options": {
           "legend": {
-            "calcs": [],
-            "displayMode": "list",
-            "placement": "bottom",
             "showLegend": true
           },
           "tooltip": {
-            "hideZeros": false,
             "mode": "multi",
             "sort": "none"
           }
         },
-        "pluginVersion": "12.1.0",
         "targets": [
           {
             "datasource": {
@@ -2610,43 +2199,18 @@
         },
         "fieldConfig": {
           "defaults": {
-            "color": {
-              "mode": "palette-classic"
-            },
             "custom": {
-              "axisBorderShow": false,
-              "axisCenteredZero": false,
-              "axisColorMode": "text",
-              "axisLabel": "",
-              "axisPlacement": "auto",
-              "barAlignment": 0,
-              "barWidthFactor": 0.6,
               "drawStyle": "line",
               "fillOpacity": 100,
-              "gradientMode": "none",
-              "hideFrom": {
-                "legend": false,
-                "tooltip": false,
-                "viz": false
-              },
-              "insertNulls": false,
-              "lineInterpolation": "linear",
               "lineWidth": 0,
               "pointSize": 5,
-              "scaleDistribution": {
-                "type": "linear"
-              },
               "showPoints": "never",
               "spanNulls": false,
               "stacking": {
                 "group": "A",
                 "mode": "normal"
-              },
-              "thresholdsStyle": {
-                "mode": "off"
               }
             },
-            "mappings": [],
             "min": 0,
             "thresholds": {
               "mode": "absolute",
@@ -2665,18 +2229,13 @@
         "id": 21,
         "options": {
           "legend": {
-            "calcs": [],
-            "displayMode": "list",
-            "placement": "bottom",
             "showLegend": true
           },
           "tooltip": {
-            "hideZeros": false,
             "mode": "multi",
             "sort": "none"
           }
         },
-        "pluginVersion": "12.1.0",
         "targets": [
           {
             "datasource": {
@@ -2710,43 +2269,18 @@
         },
         "fieldConfig": {
           "defaults": {
-            "color": {
-              "mode": "palette-classic"
-            },
             "custom": {
-              "axisBorderShow": false,
-              "axisCenteredZero": false,
-              "axisColorMode": "text",
-              "axisLabel": "",
-              "axisPlacement": "auto",
-              "barAlignment": 0,
-              "barWidthFactor": 0.6,
               "drawStyle": "line",
               "fillOpacity": 1,
-              "gradientMode": "none",
-              "hideFrom": {
-                "legend": false,
-                "tooltip": false,
-                "viz": false
-              },
-              "insertNulls": false,
-              "lineInterpolation": "linear",
               "lineWidth": 1,
               "pointSize": 5,
-              "scaleDistribution": {
-                "type": "linear"
-              },
               "showPoints": "never",
               "spanNulls": false,
               "stacking": {
                 "group": "A",
                 "mode": "none"
-              },
-              "thresholdsStyle": {
-                "mode": "off"
               }
             },
-            "mappings": [],
             "min": 0,
             "thresholds": {
               "mode": "absolute",
@@ -2796,18 +2330,13 @@
         "id": 22,
         "options": {
           "legend": {
-            "calcs": [],
-            "displayMode": "list",
-            "placement": "bottom",
             "showLegend": true
           },
           "tooltip": {
-            "hideZeros": false,
             "mode": "multi",
             "sort": "none"
           }
         },
-        "pluginVersion": "12.1.0",
         "targets": [
           {
             "datasource": {
@@ -2837,43 +2366,18 @@
         },
         "fieldConfig": {
           "defaults": {
-            "color": {
-              "mode": "palette-classic"
-            },
             "custom": {
-              "axisBorderShow": false,
-              "axisCenteredZero": false,
-              "axisColorMode": "text",
-              "axisLabel": "",
-              "axisPlacement": "auto",
-              "barAlignment": 0,
-              "barWidthFactor": 0.6,
               "drawStyle": "line",
               "fillOpacity": 1,
-              "gradientMode": "none",
-              "hideFrom": {
-                "legend": false,
-                "tooltip": false,
-                "viz": false
-              },
-              "insertNulls": false,
-              "lineInterpolation": "linear",
               "lineWidth": 1,
               "pointSize": 5,
-              "scaleDistribution": {
-                "type": "linear"
-              },
               "showPoints": "never",
               "spanNulls": false,
               "stacking": {
                 "group": "A",
                 "mode": "none"
-              },
-              "thresholdsStyle": {
-                "mode": "off"
               }
             },
-            "mappings": [],
             "min": 0,
             "thresholds": {
               "mode": "absolute",
@@ -2892,18 +2396,13 @@
         "id": 23,
         "options": {
           "legend": {
-            "calcs": [],
-            "displayMode": "list",
-            "placement": "bottom",
             "showLegend": true
           },
           "tooltip": {
-            "hideZeros": false,
             "mode": "multi",
             "sort": "none"
           }
         },
-        "pluginVersion": "12.1.0",
         "targets": [
           {
             "datasource": {
@@ -2924,43 +2423,18 @@
         },
         "fieldConfig": {
           "defaults": {
-            "color": {
-              "mode": "palette-classic"
-            },
             "custom": {
-              "axisBorderShow": false,
-              "axisCenteredZero": false,
-              "axisColorMode": "text",
-              "axisLabel": "",
-              "axisPlacement": "auto",
-              "barAlignment": 0,
-              "barWidthFactor": 0.6,
               "drawStyle": "line",
               "fillOpacity": 1,
-              "gradientMode": "none",
-              "hideFrom": {
-                "legend": false,
-                "tooltip": false,
-                "viz": false
-              },
-              "insertNulls": false,
-              "lineInterpolation": "linear",
               "lineWidth": 1,
               "pointSize": 5,
-              "scaleDistribution": {
-                "type": "linear"
-              },
               "showPoints": "never",
               "spanNulls": false,
               "stacking": {
                 "group": "A",
                 "mode": "none"
-              },
-              "thresholdsStyle": {
-                "mode": "off"
               }
             },
-            "mappings": [],
             "min": 0,
             "thresholds": {
               "mode": "absolute",
@@ -2979,18 +2453,13 @@
         "id": 24,
         "options": {
           "legend": {
-            "calcs": [],
-            "displayMode": "list",
-            "placement": "bottom",
             "showLegend": true
           },
           "tooltip": {
-            "hideZeros": false,
             "mode": "multi",
             "sort": "none"
           }
         },
-        "pluginVersion": "12.1.0",
         "targets": [
           {
             "datasource": {
@@ -3024,43 +2493,18 @@
         },
         "fieldConfig": {
           "defaults": {
-            "color": {
-              "mode": "palette-classic"
-            },
             "custom": {
-              "axisBorderShow": false,
-              "axisCenteredZero": false,
-              "axisColorMode": "text",
-              "axisLabel": "",
-              "axisPlacement": "auto",
-              "barAlignment": 0,
-              "barWidthFactor": 0.6,
               "drawStyle": "line",
               "fillOpacity": 1,
-              "gradientMode": "none",
-              "hideFrom": {
-                "legend": false,
-                "tooltip": false,
-                "viz": false
-              },
-              "insertNulls": false,
-              "lineInterpolation": "linear",
               "lineWidth": 1,
               "pointSize": 5,
-              "scaleDistribution": {
-                "type": "linear"
-              },
               "showPoints": "never",
               "spanNulls": false,
               "stacking": {
                 "group": "A",
                 "mode": "none"
-              },
-              "thresholdsStyle": {
-                "mode": "off"
               }
             },
-            "mappings": [],
             "min": 0,
             "thresholds": {
               "mode": "absolute",
@@ -3079,18 +2523,13 @@
         "id": 25,
         "options": {
           "legend": {
-            "calcs": [],
-            "displayMode": "list",
-            "placement": "bottom",
             "showLegend": true
           },
           "tooltip": {
-            "hideZeros": false,
             "mode": "multi",
             "sort": "none"
           }
         },
-        "pluginVersion": "12.1.0",
         "targets": [
           {
             "datasource": {
@@ -3112,43 +2551,18 @@
         },
         "fieldConfig": {
           "defaults": {
-            "color": {
-              "mode": "palette-classic"
-            },
             "custom": {
-              "axisBorderShow": false,
-              "axisCenteredZero": false,
-              "axisColorMode": "text",
-              "axisLabel": "",
-              "axisPlacement": "auto",
-              "barAlignment": 0,
-              "barWidthFactor": 0.6,
               "drawStyle": "line",
               "fillOpacity": 1,
-              "gradientMode": "none",
-              "hideFrom": {
-                "legend": false,
-                "tooltip": false,
-                "viz": false
-              },
-              "insertNulls": false,
-              "lineInterpolation": "linear",
               "lineWidth": 1,
               "pointSize": 5,
-              "scaleDistribution": {
-                "type": "linear"
-              },
               "showPoints": "never",
               "spanNulls": false,
               "stacking": {
                 "group": "A",
                 "mode": "none"
-              },
-              "thresholdsStyle": {
-                "mode": "off"
               }
             },
-            "mappings": [],
             "min": 0,
             "thresholds": {
               "mode": "absolute",
@@ -3167,18 +2581,13 @@
         "id": 26,
         "options": {
           "legend": {
-            "calcs": [],
-            "displayMode": "list",
-            "placement": "bottom",
             "showLegend": true
           },
           "tooltip": {
-            "hideZeros": false,
             "mode": "multi",
             "sort": "none"
           }
         },
-        "pluginVersion": "12.1.0",
         "targets": [
           {
             "datasource": {
@@ -3220,43 +2629,18 @@
         },
         "fieldConfig": {
           "defaults": {
-            "color": {
-              "mode": "palette-classic"
-            },
             "custom": {
-              "axisBorderShow": false,
-              "axisCenteredZero": false,
-              "axisColorMode": "text",
-              "axisLabel": "",
-              "axisPlacement": "auto",
-              "barAlignment": 0,
-              "barWidthFactor": 0.6,
               "drawStyle": "line",
               "fillOpacity": 1,
-              "gradientMode": "none",
-              "hideFrom": {
-                "legend": false,
-                "tooltip": false,
-                "viz": false
-              },
-              "insertNulls": false,
-              "lineInterpolation": "linear",
               "lineWidth": 1,
               "pointSize": 5,
-              "scaleDistribution": {
-                "type": "linear"
-              },
               "showPoints": "never",
               "spanNulls": false,
               "stacking": {
                 "group": "A",
                 "mode": "none"
-              },
-              "thresholdsStyle": {
-                "mode": "off"
               }
             },
-            "mappings": [],
             "min": 0,
             "thresholds": {
               "mode": "absolute",
@@ -3306,18 +2690,13 @@
         "id": 27,
         "options": {
           "legend": {
-            "calcs": [],
-            "displayMode": "list",
-            "placement": "bottom",
             "showLegend": true
           },
           "tooltip": {
-            "hideZeros": false,
             "mode": "multi",
             "sort": "none"
           }
         },
-        "pluginVersion": "12.1.0",
         "targets": [
           {
             "datasource": {
@@ -3362,43 +2741,18 @@
         },
         "fieldConfig": {
           "defaults": {
-            "color": {
-              "mode": "palette-classic"
-            },
             "custom": {
-              "axisBorderShow": false,
-              "axisCenteredZero": false,
-              "axisColorMode": "text",
-              "axisLabel": "",
-              "axisPlacement": "auto",
-              "barAlignment": 0,
-              "barWidthFactor": 0.6,
               "drawStyle": "line",
               "fillOpacity": 1,
-              "gradientMode": "none",
-              "hideFrom": {
-                "legend": false,
-                "tooltip": false,
-                "viz": false
-              },
-              "insertNulls": false,
-              "lineInterpolation": "linear",
               "lineWidth": 1,
               "pointSize": 5,
-              "scaleDistribution": {
-                "type": "linear"
-              },
               "showPoints": "never",
               "spanNulls": false,
               "stacking": {
                 "group": "A",
                 "mode": "none"
-              },
-              "thresholdsStyle": {
-                "mode": "off"
               }
             },
-            "mappings": [],
             "min": 0,
             "thresholds": {
               "mode": "absolute",
@@ -3448,18 +2802,13 @@
         "id": 28,
         "options": {
           "legend": {
-            "calcs": [],
-            "displayMode": "list",
-            "placement": "bottom",
             "showLegend": true
           },
           "tooltip": {
-            "hideZeros": false,
             "mode": "multi",
             "sort": "none"
           }
         },
-        "pluginVersion": "12.1.0",
         "targets": [
           {
             "datasource": {
@@ -3489,43 +2838,18 @@
         },
         "fieldConfig": {
           "defaults": {
-            "color": {
-              "mode": "palette-classic"
-            },
             "custom": {
-              "axisBorderShow": false,
-              "axisCenteredZero": false,
-              "axisColorMode": "text",
-              "axisLabel": "",
-              "axisPlacement": "auto",
-              "barAlignment": 0,
-              "barWidthFactor": 0.6,
               "drawStyle": "line",
               "fillOpacity": 1,
-              "gradientMode": "none",
-              "hideFrom": {
-                "legend": false,
-                "tooltip": false,
-                "viz": false
-              },
-              "insertNulls": false,
-              "lineInterpolation": "linear",
               "lineWidth": 1,
               "pointSize": 5,
-              "scaleDistribution": {
-                "type": "linear"
-              },
               "showPoints": "never",
               "spanNulls": false,
               "stacking": {
                 "group": "A",
                 "mode": "none"
-              },
-              "thresholdsStyle": {
-                "mode": "off"
               }
             },
-            "mappings": [],
             "min": 0,
             "thresholds": {
               "mode": "absolute",
@@ -3575,18 +2899,13 @@
         "id": 29,
         "options": {
           "legend": {
-            "calcs": [],
-            "displayMode": "list",
-            "placement": "bottom",
             "showLegend": true
           },
           "tooltip": {
-            "hideZeros": false,
             "mode": "multi",
             "sort": "none"
           }
         },
-        "pluginVersion": "12.1.0",
         "targets": [
           {
             "datasource": {
@@ -3616,43 +2935,18 @@
         },
         "fieldConfig": {
           "defaults": {
-            "color": {
-              "mode": "palette-classic"
-            },
             "custom": {
-              "axisBorderShow": false,
-              "axisCenteredZero": false,
-              "axisColorMode": "text",
-              "axisLabel": "",
-              "axisPlacement": "auto",
-              "barAlignment": 0,
-              "barWidthFactor": 0.6,
               "drawStyle": "line",
               "fillOpacity": 1,
-              "gradientMode": "none",
-              "hideFrom": {
-                "legend": false,
-                "tooltip": false,
-                "viz": false
-              },
-              "insertNulls": false,
-              "lineInterpolation": "linear",
               "lineWidth": 1,
               "pointSize": 5,
-              "scaleDistribution": {
-                "type": "linear"
-              },
               "showPoints": "never",
               "spanNulls": false,
               "stacking": {
                 "group": "A",
                 "mode": "none"
-              },
-              "thresholdsStyle": {
-                "mode": "off"
               }
             },
-            "mappings": [],
             "min": 0,
             "thresholds": {
               "mode": "absolute",
@@ -3702,18 +2996,13 @@
         "id": 30,
         "options": {
           "legend": {
-            "calcs": [],
-            "displayMode": "list",
-            "placement": "bottom",
             "showLegend": true
           },
           "tooltip": {
-            "hideZeros": false,
             "mode": "multi",
             "sort": "none"
           }
         },
-        "pluginVersion": "12.1.0",
         "targets": [
           {
             "datasource": {
