@@ -1,5 +1,5 @@
 {
-  "apiVersion": "dashboard.grafana.app/v1beta1",
+  "apiVersion": "dashboard.grafana.app/v0alpha1",
   "kind": "Dashboard",
   "metadata": {
     "name": "919b92a8e8041bd567af9edab12c840c"
@@ -246,7 +246,7 @@
       }
     ],
     "refresh": "10s",
-    "schemaVersion": 41,
+    "schemaVersion": 39,
     "tags": [
       "kubernetes-mixin"
     ],
