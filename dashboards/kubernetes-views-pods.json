@@ -1,5 +1,5 @@
 {
-  "apiVersion": "dashboard.grafana.app/v0alpha1",
+  "apiVersion": "dashboard.grafana.app/v1beta1",
   "kind": "Dashboard",
   "metadata": {
     "name": "k8s_views_pods"
@@ -2510,7 +2510,7 @@
       }
     ],
     "refresh": "30s",
-    "schemaVersion": 39,
+    "schemaVersion": 41,
     "tags": [
       "Kubernetes",
       "Prometheus"
