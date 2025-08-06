@@ -1,5 +1,5 @@
 {
-  "apiVersion": "dashboard.grafana.app/v0alpha1",
+  "apiVersion": "dashboard.grafana.app/v1beta1",
   "kind": "Dashboard",
   "metadata": {
     "name": "a7c3dac4-d963-4154-8a25-149a2f56b81d"
@@ -734,7 +734,8 @@
         "type": "timeseries"
       }
     ],
-    "schemaVersion": 39,
+    "refresh": "",
+    "schemaVersion": 41,
     "tags": [
       "prometheus-mixin"
     ],
